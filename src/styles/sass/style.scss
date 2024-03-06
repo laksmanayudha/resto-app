@@ -1,0 +1,24 @@
+// variables
+$color_1: #FAF1E6;
+$color_2: #FDFAF6;
+$color_3: #E4EFE7;
+$color_4: #064420;
+
+// Reset style
+@font-face {
+  font-family: 'inter';
+  src: url('/src/public/fonts/inter.ttf');
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family:'inter', sans-serif ;
+}
+
+// main style
