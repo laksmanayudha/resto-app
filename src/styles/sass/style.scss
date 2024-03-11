@@ -3,6 +3,39 @@ $color_1: #FAF1E6;
 $color_2: #FDFAF6;
 $color_3: #E4EFE7;
 $color_4: #064420;
+$color_5: #222831;
+$color_6: #393E46;
+$color_7: #00ADB5;
+$color_8: #c2c2c2;
+$color_9: #FB8B24;
+
+@mixin button-theme($theme: $color_3) {
+  padding: .8rem 1rem;
+  background-color: $theme;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: .15s;
+
+  &:hover {
+    @extend %background-hover;
+  }
+}
+
+%background-hover {
+  &:hover {
+    background-color: $color_4;
+    color: $color_1;
+    transition: .15s;
+  }
+}
+
+%img-fit {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
 
 // Reset style
 @font-face {
@@ -21,4 +54,320 @@ html {
   font-family:'inter', sans-serif ;
 }
 
+a {
+  text-decoration: none;
+}
+
 // main style
+#skipToContent {
+  position: fixed;
+  top: -100px;
+  left: 0;
+  z-index: 10;
+  background-color: $color_4;
+  color: $color_1;
+  padding: .5rem;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+.app-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: $color_2;
+  border-bottom: 1px solid $color_3;
+  padding: .5rem;
+
+  .app-bar-wrapper {
+    .app-bar-logo {
+      display: flex;
+      justify-content: space-between;
+      padding: .3rem;
+
+      .app-bar-brand {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .8rem;
+
+        img {
+          width: 44px;
+          height: 44px;
+        }
+
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+    
+      .app-bar-hamburger {
+        button {
+          @include button-theme($theme: $color_3);
+        }
+      }
+    }
+
+    .app-bar-nav {
+      width: 100%;
+      max-width: 280px;
+      background-color: $color_2;
+      position: fixed;
+      top: 0;
+      left: -280px;
+      bottom: 0;
+      box-shadow: 1px 1px 10px -5px rgb(136, 136, 136, .5);
+      transition: .15s;
+    
+      .app-bar-nav-close {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: .5rem;
+    
+        button {
+          @include button-theme;
+          margin-right: .5rem;
+        }
+      }
+    
+      .app-bar-nav-menu {
+        .app-bar-nav-item {
+          list-style: none;
+          margin-top: .5rem;
+  
+          a {
+            @extend %background-hover;
+      
+            display: block;
+            color: $color_4;
+            padding: .8rem 1.5rem;
+            cursor: pointer;
+          }
+        }
+      }
+    
+      &.--navbar-open {
+        left: 0;
+      }
+    }
+  }
+}
+
+.app-main {
+  width: 100%;
+  margin: 0 auto;
+
+  .hero {
+    figure {
+      position: relative;
+      height: 480px;
+
+      img {
+        @extend %img-fit;
+      }
+
+      figcaption {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+        text-align: center;
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 45%, rgba(255,255,255,0) 60%);
+  
+        .hero-content {
+          margin-bottom: 80px;
+          color: $color_1;
+          line-height: 1.4rem;
+  
+          h1 {
+            margin-bottom: .9rem;
+          }
+  
+          p {
+            color: $color_8;
+          }
+        }
+      }
+    }
+  }
+
+  .restaurant {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+
+    .restaurant-wrapper {
+      width: 100%;
+      max-width: 1024px;
+
+      h1 {
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: 300;
+      }
+
+      .restaurant-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        margin-top: 1rem;
+        padding: .5rem;
+
+        .restaurant-item {
+          width: 100%;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 1px 1px 10px -5px rgb(136, 136, 136, .5);
+
+
+          .restaurant-header {
+            position: relative;
+            height: 230px;
+
+            h2 {
+              font-size: 1.2rem;
+              background-color: $color_3;
+              padding: .7rem .5rem;
+              border-radius: 0 0 10px 0;
+              position: absolute;
+              top: 0;
+              left: 0;
+              opacity: .9;
+            }
+
+            img {
+              @extend %img-fit;
+            }
+          }
+
+          .restaurant-body {
+            margin-top: .5rem;
+            padding: .8rem;
+
+            .restaurant-rating {
+              i {
+                color: $color_9;
+              }
+            }
+
+            h2 {
+              margin-top: .5rem;
+              font-size: 1.2rem;
+            }
+
+            p {
+              display: -webkit-box;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;  
+              overflow: hidden;
+              text-overflow: ellipsis;
+              margin-top: .5rem;
+            }
+
+            a {
+              @include button-theme;
+              color: $color_5;
+              display: inline-block;
+              margin-top: .5rem;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-footer {
+  margin-top: 1rem;
+  text-align: center;
+  padding: 1.2rem;
+  background-color: $color_4;
+  color: $color_1;
+  font-weight: 200;
+}
+
+// media query
+@media screen and (max-width: 278px) {
+  .app-bar-brand {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 577px) {
+  .app-bar {
+    .app-bar-wrapper {
+      display: flex;
+
+      .app-bar-logo {
+        .app-bar-hamburger {
+          display: none;
+        }
+      }
+
+      .app-bar-nav {
+        max-width: initial;
+        position: initial;
+        background-color: initial;
+        flex: 1;
+        box-shadow: initial;
+        transition: initial;
+
+        .app-bar-nav-close {
+          display: none;
+        }
+
+        .app-bar-nav-menu {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+  
+  .app-main {
+    .restaurant {
+      .restaurant-wrapper {
+        .restaurant-list {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .app-main {
+    .restaurant {
+      .restaurant-wrapper {
+        .restaurant-list {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1025px) {
+
+}
+
+@media screen and (min-width: 1201px) {
+  .app-main {
+    .hero {
+      figure {
+        img {
+          min-width: 1000px;
+        }
+      }
+    }
+  }
+}
