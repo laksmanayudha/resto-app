@@ -8,6 +8,8 @@ $color_6: #393E46;
 $color_7: #00ADB5;
 $color_8: #c2c2c2;
 $color_9: #FB8B24;
+$color_10: #757575;
+
 
 @mixin button-theme($theme: $color_3) {
   padding: .8rem 1rem;
@@ -22,12 +24,26 @@ $color_9: #FB8B24;
   }
 }
 
+@mixin text-ellipsis($line: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 %background-hover {
   &:hover {
     background-color: $color_4;
     color: $color_1;
     transition: .15s;
   }
+}
+
+%section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
 %img-fit {
@@ -200,7 +216,8 @@ a {
   }
 
   .restaurant {
-    margin-top: 1.5rem;
+    margin-top: 2.2rem;
+    padding: .5rem;
     display: flex;
     justify-content: center;
 
@@ -209,23 +226,26 @@ a {
       max-width: 1024px;
 
       h1 {
+        @extend %section-title;
+      }
+
+      & > p {
         text-align: center;
-        font-size: 1.8rem;
-        font-weight: 300;
+        margin-top: .4rem;
+        color: $color_10;
       }
 
       .restaurant-list {
         display: grid;
         grid-template-columns: 1fr;
         gap: 1.2rem;
-        margin-top: 1rem;
-        padding: .5rem;
+        margin-top: 1.5rem;
 
         .restaurant-item {
           width: 100%;
           border-radius: 8px;
           overflow: hidden;
-          box-shadow: 1px 1px 10px -5px rgb(136, 136, 136, .5);
+          box-shadow: 1px 1px 7px -3px rgba(81, 81, 81, 0.8);
 
 
           .restaurant-header {
@@ -249,36 +269,91 @@ a {
           }
 
           .restaurant-body {
+            display: flex;
+            flex-direction: column;
+            height: 180px;
             margin-top: .5rem;
             padding: .8rem;
 
-            .restaurant-rating {
-              i {
-                color: $color_9;
+            .restaurant-detail {
+              flex: 1;
+
+              .restaurant-rating {
+                i {
+                  color: $color_9;
+                }
+              }
+  
+              h2 {
+                @include text-ellipsis(1);
+                margin-top: .5rem;
+                font-size: 1.2rem;
+              }
+  
+              p {
+                @include text-ellipsis(3);
+                margin-top: .5rem;
               }
             }
 
-            h2 {
-              margin-top: .5rem;
-              font-size: 1.2rem;
+            .restaurant-action {
+              a {
+                @include button-theme;
+                color: $color_5;
+                display: inline-block;
+                margin-top: 1rem;
+                text-align: center;
+              }
             }
+          }
+        }
+      }
+    }
+  }
 
-            p {
-              display: -webkit-box;
-              -webkit-line-clamp: 3;
-              -webkit-box-orient: vertical;  
-              overflow: hidden;
-              text-overflow: ellipsis;
-              margin-top: .5rem;
-            }
+  .why-us {
+    margin-top: 2.2rem;
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    background-color: $color_1;
+    padding: 1.5rem 1rem;
 
-            a {
-              @include button-theme;
-              color: $color_5;
-              display: inline-block;
-              margin-top: .5rem;
-              text-align: center;
-            }
+    .why-us-wrapper {
+      width: 100%;
+      max-width: 620px;
+
+      h1 {
+        @extend %section-title;
+      }
+
+      .why-us-list {
+        margin-top: 1rem;
+        list-style: none;
+
+        .why-us-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: .2rem;
+          text-align: center;
+
+          .why-us-number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $color_4;
+            color: $color_1;
+            padding: .4rem .9rem;
+            border-radius: 50%;
+            font-size: 1.7rem;
+            font-weight: bold;
+          }
+          
+          .why-us-content {
+            border: 2px solid $color_1;
+            padding: 1rem;
+            border-radius: 10px;
           }
         }
       }
@@ -290,9 +365,8 @@ a {
   margin-top: 1rem;
   text-align: center;
   padding: 1.2rem;
-  background-color: $color_4;
+  background-color: $color_5;
   color: $color_1;
-  font-weight: 200;
 }
 
 // media query
@@ -338,6 +412,17 @@ a {
       .restaurant-wrapper {
         .restaurant-list {
           grid-template-columns: 1fr 1fr;
+        }
+      }
+    }
+
+    .why-us {
+      .why-us-wrapper {
+        .why-us-list {
+          .why-us-item {
+            flex-direction: row;
+            text-align: left;
+          }
         }
       }
     }
