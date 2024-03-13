@@ -130,6 +130,7 @@ a {
       width: 100%;
       max-width: 280px;
       background-color: $color_2;
+      visibility: hidden;
       position: fixed;
       top: 0;
       left: -280px;
@@ -165,6 +166,7 @@ a {
       }
     
       &.--navbar-open {
+        visibility: visible;
         left: 0;
       }
     }
@@ -316,7 +318,7 @@ a {
     padding: .5rem;
     display: flex;
     justify-content: center;
-    background-color: $color_1;
+    background-color: $color_3;
     padding: 1.5rem 1rem;
 
     .why-us-wrapper {
@@ -330,12 +332,15 @@ a {
       .why-us-list {
         margin-top: 1rem;
         list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
 
         .why-us-item {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: .2rem;
+          gap: .5rem;
           text-align: center;
 
           .why-us-number {
@@ -351,9 +356,13 @@ a {
           }
           
           .why-us-content {
-            border: 2px solid $color_1;
-            padding: 1rem;
+            border: 2px solid $color_2;
+            padding: .8rem 1rem;
             border-radius: 10px;
+
+            p {
+              margin-top: .6rem;
+            }
           }
         }
       }
@@ -388,6 +397,7 @@ a {
       }
 
       .app-bar-nav {
+        visibility: visible;
         max-width: initial;
         position: initial;
         background-color: initial;
