@@ -7,7 +7,7 @@ import './components/Footer/app-footer';
 import './components/Hero/hero';
 import './components/WhyUs/why-us';
 import './components/Restaurant/restaurant-catalogues';
-import data from "../public/data/DATA.json" assert { type: 'json' };
+import data from "../public/data/DATA.json" with { type: 'json' };
 
 const main = () => {
     const { restaurants } = data;
