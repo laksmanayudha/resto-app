@@ -18,7 +18,7 @@ class RestaurantCatalogues extends HTMLElement {
         this.innerHTML = `
         <section class="restaurant">
             <div class="restaurant-wrapper">
-                <h1 tabindex="0">Our Catalogues</h1>
+                <h2 tabindex="0">Our Catalogues</h2>
                 <p>Explore our top recommendation catalogues today!</p>
                 <div class="restaurant-list"></div>
             </div>
