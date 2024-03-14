@@ -8,124 +8,12 @@
   </head>
   <body>
     <a href="#appMain" id="skipToContent" tabindex="0">Skip to content</a>
-    <header class="app-bar">
-      <div class="app-bar-wrapper">
-        <div class="app-bar-logo">
-          <div class="app-bar-brand">
-            <img src="./images/logos/cutlery.png" alt="brand image">
-            <h1 class="app-bar-title">Me'sResto</h1>
-          </div>
-          <div class="app-bar-hamburger">
-            <button type="button" id="toggleNavbarButton" title="open navbar">
-              <i class="fas fa-bars"></i>
-            </button>
-          </div>
-        </div>
-        <nav class="app-bar-nav" id="appNavbar">
-          <div class="app-bar-nav-close">
-            <button type="button" aria-label="Close navbar" title="close navbar" id="closeNavbarButton">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-          <ul class="app-bar-nav-menu">
-            <li class="app-bar-nav-item"><a href="/">Home</a></li>
-            <li class="app-bar-nav-item"><a href="#">Favorite</a></li>
-            <li class="app-bar-nav-item"><a href="https://www.linkedin.com/in/i-gede-laksmana-yudha-2b61801b9/">About Us</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <app-bar></app-bar>
     <main class="app-main" id="appMain">
-      <section class="hero">  
-        <figure>
-          <img src="./images/heros/hero-image_4.jpg" alt="welcome image">
-          <figcaption>
-            <div class="hero-content">
-              <h1 tabindex="0">Explore Our Restaurant Catalogue Today!</h1>
-              <p tabindex="0">Me'sResto is a journey through flavors,</p>
-              <p tabindex="0">Each dish tells a delicious story of culinary craftsmanship.</p>
-            </div>
-          </figcaption>
-        </figure>
-      </section>
-      <section class="restaurant">
-        <div class="restaurant-wrapper">
-          <h1 tabindex="0">Our Catalogues</h1>
-          <p>Explore our top recommendation catalogues today!</p>
-          <div class="restaurant-list">
-            <article class="restaurant-item">
-              <header class="restaurant-header">
-                <h2 tabindex="0">Kota Bandung</h2>
-                <img src="https://restaurant-api.dicoding.dev/images/medium/41" alt="restaurant image">
-              </header>
-              <div class="restaurant-body">
-                <div class="restaurant-detail">
-                  <div class="restaurant-rating" tabindex="0">Rating: <i class="fas fa-star"></i> 4.6</div>
-                  <h2 tabindex="0">Bring Your Phone Cafe</h2>
-                  <p>Lorem ipsum dolor sit amet consecte.</p>
-                </div>
-                <div class="restaurant-action">
-                  <a href="#">See Detail</a>
-                </div>
-              </div>
-            </article>
-            <article class="restaurant-item">
-              <header class="restaurant-header">
-                <h2 tabindex="0">Kota Bandung</h2>
-                <img src="https://restaurant-api.dicoding.dev/images/medium/41" alt="restaurant image">
-              </header>
-              <div class="restaurant-body">
-                <div class="restaurant-detail">
-                  <div class="restaurant-rating" tabindex="0">Rating: <i class="fas fa-star"></i> 4.6</div>
-                    <h2 tabindex="0">Bring Your Phone Cafe. Bring Your Own Device</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto necessitatibus recusandae doloremque harum ipsam ratione beatae. Inventore, quos, vero beatae ducimus enim cum repellat eligendi pariatur obcaecati debitis magnam exercitationem.</p>
-                </div>
-                <div class="restaurant-action">
-                  <a href="#">See Detail</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-      <section class="why-us">
-        <div class="why-us-wrapper">
-          <h1 tabindex="0">Why Us ?</h1>
-          <ul class="why-us-list">
-            <li class="why-us-item">
-              <div class="why-us-number">1</div>
-              <div class="why-us-content">
-                <h2 tabindex="0">Convenience</h2>
-                <p tabindex="0">Browse our restaurant catalog website from the comfort of your home, enabling easy access to our diverse menu and special offerings.</p>
-              </div>
-            </li>
-            <li class="why-us-item">
-              <div class="why-us-number">2</div>
-              <div class="why-us-content">
-                <h2 tabindex="0">Visual Delight</h2>
-                <p tabindex="0">Explore enticing visuals of our dishes, providing a sneak peek into the culinary delights awaiting you.</p>
-              </div>
-            </li>
-            <li class="why-us-item">
-              <div class="why-us-number">3</div>
-              <div class="why-us-content">
-                <h2 tabindex="0">Detailed Descriptions</h2>
-                <p tabindex="0">Gain insights into each dish with detailed descriptions, helping you make informed choices based on your preferences.</p>
-              </div>
-            </li>
-            <li class="why-us-item">
-              <div class="why-us-number">4</div>
-              <div class="why-us-content">
-                <h2 tabindex="0">Mobile Accessibility</h2>
-                <p tabindex="0">Access our restaurant catalog website on-the-go, allowing you to plan your visit anytime, anywhere.</p>
-              </div>
-            </li>
-          </div>
-        </div>
-      </section>
+      <app-hero></app-hero>
+      <restaurant-catalogues></restaurant-catalogues>
+      <why-us></why-us>
     </main>
-    <footer class="app-footer">
-      Copyright © 2024 - Me'sResto Apps
-    </footer>
+    <app-footer></app-footer>
   </body>
 </html>
