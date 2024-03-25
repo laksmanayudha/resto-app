@@ -1,28 +1,28 @@
 class RestaurantItem extends HTMLElement {
-    set restaurant(restaurant) {
-        this._restaurant = restaurant;
-        this.render();
-    }
+  set restaurant(restaurant) {
+    this._restaurant = restaurant;
+    this.render();
+  }
 
-    get restaurant() {
-        return this._restaurant || {};
-    }
+  get restaurant() {
+    return this._restaurant || {};
+  }
 
-    connectedCallback() {
-        this.render();
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    render() {
-        const {
-            id,
-            name,
-            description,
-            picture,
-            city,
-            rating
-        } = this.restaurant;
+  render() {
+    const {
+      id,
+      name,
+      description,
+      picture,
+      city,
+      rating,
+    } = this.restaurant;
 
-        this.innerHTML = `
+    this.innerHTML = `
         <article class="restaurant-item" id="restaurant_item_${id}">
             <header class="restaurant-header">
                 <h3 tabindex="0">
@@ -42,7 +42,7 @@ class RestaurantItem extends HTMLElement {
                 </div>
             </div>
         </article>`;
-    }
+  }
 }
 
 customElements.define('restaurant-item', RestaurantItem);

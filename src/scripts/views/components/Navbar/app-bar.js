@@ -1,11 +1,10 @@
 class AppBar extends HTMLElement {
+  connectedCallback() {
+    this.render();
+  }
 
-    connectedCallback() {
-        this.render();
-    }
-
-    render() {
-        this.innerHTML =`
+  render() {
+    this.innerHTML = `
         <header class="app-bar">
             <div class="app-bar-wrapper">
                 <div class="app-bar-logo">
@@ -34,29 +33,28 @@ class AppBar extends HTMLElement {
             </div>
         </header>`;
 
-        this.invokeEventListener();
-    }
+    this.invokeEventListener();
+  }
 
-    invokeEventListener() {
-        const appNavbar = this.querySelector('#appNavbar');
-        const toggleNavbarButton = this.querySelector('#toggleNavbarButton');
-        const closeNavbarButton = this.querySelector('#closeNavbarButton');
+  invokeEventListener() {
+    const appNavbar = this.querySelector('#appNavbar');
+    const toggleNavbarButton = this.querySelector('#toggleNavbarButton');
+    const closeNavbarButton = this.querySelector('#closeNavbarButton');
 
-        toggleNavbarButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            appNavbar.classList.toggle('--navbar-open');
-        });
+    toggleNavbarButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      appNavbar.classList.toggle('--navbar-open');
+    });
 
-        closeNavbarButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            appNavbar.classList.remove('--navbar-open');
-        });
+    closeNavbarButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      appNavbar.classList.remove('--navbar-open');
+    });
 
-        document.addEventListener('click', (e) => {
-            if(e.target != appNavbar && !appNavbar.contains(e.target))
-            appNavbar.classList.remove('--navbar-open');
-        });
-    }
+    document.addEventListener('click', (e) => {
+      if (e.target !== appNavbar && !appNavbar.contains(e.target)) appNavbar.classList.remove('--navbar-open');
+    });
+  }
 }
 
 customElements.define('app-bar', AppBar);

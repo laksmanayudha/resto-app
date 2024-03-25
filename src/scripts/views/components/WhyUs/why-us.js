@@ -1,10 +1,10 @@
 class WhyUs extends HTMLElement {
-    connectedCallback() {
-        this.render();
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    render() {
-        this.innerHTML = `
+  render() {
+    this.innerHTML = `
         <section class="why-us">
             <div class="why-us-wrapper">
                 <h2 tabindex="0">Why Us ?</h2>
@@ -40,7 +40,7 @@ class WhyUs extends HTMLElement {
                 </div>
             </div>
         </section>`;
-    }
+  }
 }
 
 customElements.define('why-us', WhyUs);
