@@ -1,3 +1,5 @@
+import '../../../../styles/sass/skeleton.scss';
+
 class CatalogueSkeleton extends HTMLElement {
   render() {
     this.innerHTML = `

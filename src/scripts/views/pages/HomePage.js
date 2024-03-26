@@ -2,6 +2,7 @@ import '../../../styles/sass/home.scss';
 import '../components/Hero/hero';
 import '../components/WhyUs/why-us';
 import '../components/Restaurant/restaurant-catalogues';
+import '../components/Skeleton/catalogue-skeleton';
 import Page from './Page';
 import RestaurantSource from '../../data/restaurant-source';
 import ENDPOINT from '../../globals/api-endpoint';
