@@ -58,3 +58,4 @@ class AppBar extends HTMLElement {
 }
 
 customElements.define('app-bar', AppBar);
+export default AppBar;

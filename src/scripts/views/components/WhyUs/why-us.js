@@ -44,3 +44,4 @@ class WhyUs extends HTMLElement {
 }
 
 customElements.define('why-us', WhyUs);
+export default WhyUs;

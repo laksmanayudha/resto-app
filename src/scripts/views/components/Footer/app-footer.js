@@ -12,3 +12,4 @@ class AppFooter extends HTMLElement {
 }
 
 customElements.define('app-footer', AppFooter);
+export default AppFooter;

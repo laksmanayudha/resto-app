@@ -16,13 +16,13 @@ class RestaurantCatalogues extends HTMLElement {
 
   render() {
     this.innerHTML = `
-        <section class="restaurant">
-            <div class="restaurant-wrapper">
-                <h2 tabindex="0">Our Catalogues</h2>
-                <p>Explore our top recommendation catalogues today!</p>
-                <div class="restaurant-list"></div>
-            </div>
-        </section>`;
+      <section class="restaurant">
+          <div class="restaurant-wrapper">
+              <h2 tabindex="0">Our Catalogues</h2>
+              <p>Explore our top recommendation catalogues today!</p>
+              <div class="restaurant-list"></div>
+          </div>
+      </section>`;
 
     this.fillItems(this.restaurants);
   }
@@ -44,3 +44,4 @@ class RestaurantCatalogues extends HTMLElement {
 }
 
 customElements.define('restaurant-catalogues', RestaurantCatalogues);
+export default RestaurantCatalogues;

@@ -33,9 +33,9 @@ module.exports = {
           // Translates CSS into CommonJS
           'css-loader',
           // Compiles Sass to css
-          'sass-loader'
+          'sass-loader',
         ],
-      }
+      },
     ],
   },
   plugins: [

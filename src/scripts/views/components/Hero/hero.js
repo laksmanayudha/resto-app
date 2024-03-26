@@ -21,3 +21,4 @@ class Hero extends HTMLElement {
 }
 
 customElements.define('app-hero', Hero);
+export default Hero;
