@@ -3,7 +3,7 @@ import '../components/Hero/hero';
 import '../components/WhyUs/why-us';
 import '../components/Restaurant/restaurant-catalogues';
 import '../components/Skeleton/catalogue-skeleton';
-import Page from './Page';
+import Page from './page';
 import RestaurantSource from '../../data/restaurant-source';
 import ENDPOINT from '../../globals/api-endpoint';
 
@@ -34,16 +34,14 @@ class HomePage extends Page {
   }
 
   afterEffect() {
-    this.innerHTML = `
-      <app-hero></app-hero>
-      <restaurant-catalogues></restaurant-catalogues>
-      <why-us></why-us>
-    `;
+    const restoCatalogueElement = document.createElement('restaurant-catalogues');
     const { restaurants } = this.state;
     if (restaurants.length) {
-      const restoCatalogueElement = this.querySelector('restaurant-catalogues');
       restoCatalogueElement.restaurants = restaurants;
     }
+
+    const catalogueSkeletonElement = this.querySelector('catalogue-skeleton');
+    catalogueSkeletonElement.replaceWith(restoCatalogueElement);
   }
 }
 

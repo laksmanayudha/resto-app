@@ -325,6 +325,19 @@ a {
     }
   }
 
+  .catalogue-skeleton-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .catalogue-skeleton-list {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
   .why-us {
     margin-top: 2.2rem;
     padding: .5rem;
@@ -438,6 +451,12 @@ a {
       }
     }
 
+    .catalogue-skeleton-container {
+      .catalogue-skeleton-list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
     .why-us {
       .why-us-wrapper {
         .why-us-list {
@@ -458,6 +477,12 @@ a {
         .restaurant-list {
           grid-template-columns: 1fr 1fr 1fr;
         }
+      }
+    }
+
+    .catalogue-skeleton-container {
+      .catalogue-skeleton-list {
+        grid-template-columns: 1fr 1fr 1fr;
       }
     }
   }

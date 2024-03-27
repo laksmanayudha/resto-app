@@ -1,24 +1,51 @@
-.skeleton-container {
+.sk-container {
   padding: .5rem;
 }
 
-.skeleton {
+.sk {
   width: 100%;
   overflow: hidden;
   animation: skeleton-loading 1s linear infinite alternate;
 }
-.skeleton-fill {
+.sk-fill {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.skeleton-rounded {
+.sk-rounded {
   border-radius: 4px;
 }
 
-.skeleton-shadow {
+.sk-shadow {
   box-shadow: 1px 1px 10px -5px rgb(136, 136, 136, .5);
+}
+
+.sk-image {
+  height: 230px;
+}
+
+.sk-image-lg {
+  height: 430px;
+}
+
+.sk-heading {
+  height: 23px;
+  max-width: 300px;
+}
+
+.sk-text {
+  height: 12px;
+}
+
+.sk-text-short {
+  height: 12px;
+  max-width: 350px;
+}
+
+.sk-button {
+  height: 45px;
+  max-width: 130px;
 }
 
 .mt-1 {
@@ -35,6 +62,10 @@
 
 .mt-4 {
   margin-top: 1.5rem;
+}
+
+.mt-5 {
+  margin-top: 2rem;
 }
 
 .p-1 {

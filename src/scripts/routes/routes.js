@@ -1,5 +1,5 @@
-import HomePage from '../views/pages/HomePage';
-import NotFoundPage from '../views/pages/NotFoundPage';
+import HomePage from '../views/pages/home-page';
+import NotFoundPage from '../views/pages/not-found-page';
 
 const router = {
   routes: {
