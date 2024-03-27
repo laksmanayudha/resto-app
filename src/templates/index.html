@@ -22,8 +22,8 @@
           </div>
           <div class="restaurant-detail__general">
             <h2 class="restaurant-detail__name">Melting Pot</h2>
-            <p class="restaurant-detail__city">Medan</p>
-            <p class="restaurant-detail__address">Jln. Pandeglang no 19</p>
+            <p class="restaurant-detail__city"><i class="fas fa-building"></i> Medan</p>
+            <p class="restaurant-detail__address"><i class="fas fa-map-pin"></i> Jln. Pandeglang no 19</p>
             <div class="restaurant-detail__description">
               <h3>Description</h3>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ut quas labore doloribus velit fugit dolorum corrupti ex quia magnam aut porro voluptatum, accusamus ipsa similique cum reprehenderit illum tempore.</p>
@@ -37,34 +37,79 @@
           </div>
         </section>
         <section class="restaurant-detail-menu">
-          <h2>Enjoy Our Menu !</h2>
-          <h3><small>Our</small> Foods</h3>
-          <ul>
-            <li>Paket rosemary</li>
-            <li>Toastie salmon</li>
-          </ul>
-          <h3><small>Our</small> Drinks</h3>
-          <ul>
-            <li>Paket rosemary</li>
-            <li>Toastie salmon</li>
-          </ul>
+          <h2>Our Menu</h2>
+          <div class="menu-wrapper">
+            <div class="menu-item">
+              <h3>
+                <i class="fas fa-utensils"></i>
+                <small>Our</small> Foods
+              </h3>
+              <ul>
+                <li>
+                  <i class="fas fa-circle-notch"></i>
+                  <span>Paket rosemary</span>
+                </li>
+                <li>
+                  <i class="fas fa-circle-notch"></i>
+                  <span>Toastie salmon</span>
+                </li>
+              </ul>
+            </div>
+            <div class="menu-item">
+              <h3>
+                <i class="fas fa-glass-cheers"></i>
+                <small>Our</small> Drinks
+              </h3>
+              <ul>
+                <li>
+                  <i class="fas fa-circle-notch"></i>
+                  <span>Paket rosemary</span>
+                </li>
+                <li>
+                  <i class="fas fa-circle-notch"></i>
+                  <span>Toastie salmon</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </section>
         <section class="restaurant-detail-review">
-          <form action="#" id="reviewForm">
-            <label for="reviewInput">Write a review</label>
-            <br>
-            <textarea name="reviewInput" id="reviewInput" cols="30" rows="10"></textarea>
-            <button type="submit">Send</button>
-          </form>
-          <div class="review-list">
-            <article class="review-item">
-              <div class="review-author">
-                <img class="review-author__avatar" src="" alt="">
-                <strong class="review-author__name">Ahmad</strong>
-              </div>
-              <p class="review-content">Tidak rekomendasi untuk pelajar!</p>
-              <p class="review-date">13 November 2019</p>
-            </article>
+          <h2>Reviews</h2>
+          <div class="review-wrapper">
+            <form action="#" id="reviewForm">
+              <label for="reviewInput">Write a review</label>
+              <textarea name="reviewInput" id="reviewInput" cols="30" rows="10"></textarea>
+              <button type="submit">
+                Send review
+              </button>
+            </form>
+            <div class="review-list">
+              <small>Total 16 reviews</small>
+              <article class="review-item">
+                <div class="review-author">
+                  <i class="fas fa-user-circle"></i>
+                  <strong class="review-author__name">Ahmad</strong>
+                </div>
+                <p class="review-content">Tidak rekomendasi untuk pelajar!</p>
+                <p class="review-date">13 November 2019</p>
+              </article>
+              <article class="review-item">
+                <div class="review-author">
+                  <i class="fas fa-user-circle"></i>
+                  <strong class="review-author__name">Ahmad</strong>
+                </div>
+                <p class="review-content">Tidak rekomendasi untuk pelajar!</p>
+                <p class="review-date">13 November 2019</p>
+              </article>
+              <article class="review-item">
+                <div class="review-author">
+                  <i class="fas fa-user-circle"></i>
+                  <strong class="review-author__name">Ahmad</strong>
+                </div>
+                <p class="review-content">Tidak rekomendasi untuk pelajar!</p>
+                <p class="review-date">13 November 2019</p>
+              </article>
+            </div>
           </div>
         </section>
       </div>

@@ -1,5 +1,18 @@
 @import '/src/styles/sass/main.scss';
 
+%base-section {
+  padding: .8rem;
+}
+
+%section-title {
+  text-align: left;
+  font-weight: 500;
+  font-size: 2.2rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid $color_3;
+  line-height: 3rem;
+}
+
 .restaurant-detail-container {
   width: 100%;
   max-width: 1400px;
@@ -39,12 +52,10 @@
       }
   
       .restaurant-detail__city {
-        font-weight: 600;
         color: $color_6;
       }
   
       .restaurant-detail__address {
-        font-weight: 600;
         color: $color_6;
       }
   
@@ -74,64 +85,172 @@
   }
 
   .restaurant-detail-menu {
-    margin-top: 1rem;
-    padding: 1.2rem;
-    text-align: center;
-    line-height: 1.5rem;
+    @extend %base-section;
 
     h2 {
-      font-weight: 300;
-      color: $color_6;
-      font-size: 2.5rem;
-      padding-bottom: .5rem;
-      border-bottom: 2px solid $color_3;
-      line-height: 3rem;
+      @extend %section-title;
     }
 
-    h3 {
-      font-weight: 600;
-      color: $color_4;
-      margin-top: 1.5rem;
-      font-size: 2.8rem;
-      line-height: 2.5rem;
-
-      small {
-        color: $color_11;
-        font-weight: 300;
-        font-size: 2.2rem;
-      }
-    }
-
-    ul {
-      list-style-type: none;
+    .menu-wrapper {
+      margin-top: .8rem;
       display: flex;
       flex-direction: column;
-      margin-top: 1.5rem;
-      gap: .75rem;
+      gap: 1.2rem;
+      
+      .menu-item {
+        padding: 1.5rem;
+        border-radius: 4px;
+        flex: 1;
+        
+        &:nth-child(1) {
+          background-color: $color_2;
+        }
 
-      li {
-        font-size: 1.5rem;
-        color: $color_6;
+        &:nth-child(2) {
+          background-color: $color_3;
+        }
+
+        h3 {
+          text-align: center;
+          font-weight: 600;
+          color: $color_4;
+          font-size: 2rem;
+          line-height: 2rem;
+    
+          small {
+            color: $color_11;
+            font-weight: 300;
+            font-size: 1.8rem;
+          }
+        }
+    
+        ul {
+          margin: 1.5rem auto;
+          width: 100%;
+          max-width: 400px;
+          list-style: none;
+
+          li {
+            font-size: 1.3rem;
+            color: $color_6;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid $color_8;
+            padding-bottom: .5rem;
+          }
+        }
+      }
+    }
+  }
+
+  .restaurant-detail-review {
+    @extend %base-section;
+
+    h2 {
+      @extend %section-title;
+    }
+
+    .review-wrapper {
+      form {
+        margin-top: .5rem;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+
+        label {
+          color: $color_6;
+        }
+
+        textarea {
+          border-radius: 4px;
+          border: 1px solid $color_12;
+          outline: 0px solid $color_3;
+
+          &:focus {
+            border: 1px solid $color_4;
+            outline: 5px solid $color_3;
+            transition: .1s;
+          }
+        }
+
+        button {
+          @include button-theme;
+          border: 1px solid $color_4;
+        }
+      }
+
+      .review-list {
+        margin-top: .8rem;
+        padding: .8rem;
+        border-top: 2px solid $color_3;
+
+        .review-item {
+          display: flex;
+          flex-direction: column;
+          gap: .5rem;
+          padding: .5rem;
+          border-bottom: 1px solid $color_3;
+
+          .review-author {
+            font-size: 1.3rem;
+          }
+
+          .review-content {
+            color: $color_5;
+          }
+
+          .review-date {
+            text-align: right;
+            font-size: .8rem;
+          }
+        }
       }
     }
   }
 }
 
 @media screen and (min-width: 577px) {
-  .restaurant-detail-overview {
-    display: flex;
-    padding: .7rem;
-    gap: 1rem;
-
-    .restaurant-detail__hero {
-      flex: 1;
-      border-radius: 2% 10% 2% 10%;
-      overflow: hidden;
-      box-shadow: 1px 1px 12px -3px $color_12;
+  .restaurant-detail-container {
+    .restaurant-detail-overview {
+      display: flex;
+      padding: .7rem;
+      gap: 1rem;
+  
+      .restaurant-detail__hero {
+        flex: 1;
+        border-radius: 2% 10% 2% 10%;
+        overflow: hidden;
+        box-shadow: 1px 1px 12px -3px $color_12;
+      }
+  
+      .restaurant-detail__general {
+        flex: 1;
+      }
     }
 
-    .restaurant-detail__general {
-      flex: 1;
+    .restaurant-detail-menu {
+      .menu-wrapper {
+        flex-direction: row;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .restaurant-detail-container {
+    .restaurant-detail-review {
+      .review-wrapper {
+        display: flex;
+        gap: 1.2rem;
+
+        form {
+          flex: 5;
+        }
+
+        .review-list {
+          border-top: none;
+          flex: 7;
+        }
+      }
     }
   }
 }
