@@ -1,3 +1,4 @@
+import '../../../../styles/sass/footer.scss';
 import Component from '../component';
 
 class AppFooter extends Component {

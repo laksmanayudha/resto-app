@@ -1,9 +1,11 @@
+import DetailPage from '../views/pages/detail-page';
 import HomePage from '../views/pages/home-page';
 import NotFoundPage from '../views/pages/not-found-page';
 
 const router = {
   routes: {
     '/': HomePage,
+    '/detail/:id': DetailPage,
     notFoundPage: NotFoundPage,
   },
 

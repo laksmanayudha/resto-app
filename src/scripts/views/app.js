@@ -1,3 +1,5 @@
+import './components/Navbar/app-bar';
+import './components/Footer/app-footer';
 import URLParser from '../routes/url-parser';
 
 class App {
@@ -18,11 +20,11 @@ class App {
   }
 
   renderPage() {
-    this._content.innerHTML = '';
+    // this._content.innerHTML = '';
 
-    const url = URLParser.parseActiveWithCombiner();
-    const Page = this._router.findPage(url);
-    this._content.appendChild(new Page());
+    // const url = URLParser.parseActiveWithCombiner();
+    // const Page = this._router.findPage(url);
+    // this._content.appendChild(new Page());
   }
 }
 

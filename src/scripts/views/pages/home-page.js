@@ -26,6 +26,7 @@ class HomePage extends Component {
       restaurants: restaurants.map((restaurant) => ({
         ...restaurant,
         picture: ENDPOINT.smallImage(restaurant.pictureId),
+        detailUrl: `#/detail/${restaurant.id}`,
       })),
     });
   }

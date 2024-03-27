@@ -9,7 +9,66 @@
   <body>
     <a href="#appMain" id="skipToContent" tabindex="0">Skip to content</a>
     <app-bar></app-bar>
-    <main class="app-main" id="appMain"></main>
+    <main class="app-main" id="appMain">
+      <div class="restaurant-detail-container">
+        <section class="restaurant-detail-overview">
+          <div class="restaurant-detail__hero">
+            <img src="https://restaurant-api.dicoding.dev/images/medium/14" alt="restaurant image">
+            <div class="restaurant-detail__rating" tabindex="0">
+              <i class="fas fa-star"></i>
+              <strong>4.5/5</strong>
+              <small>(16 review)</small>
+            </div>
+          </div>
+          <div class="restaurant-detail__general">
+            <h2 class="restaurant-detail__name">Melting Pot</h2>
+            <p class="restaurant-detail__city">Medan</p>
+            <p class="restaurant-detail__address">Jln. Pandeglang no 19</p>
+            <div class="restaurant-detail__description">
+              <h3>Description</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ut quas labore doloribus velit fugit dolorum corrupti ex quia magnam aut porro voluptatum, accusamus ipsa similique cum reprehenderit illum tempore.</p>
+            </div>
+            <div class="restaurant-detail__category">
+              <ul class="category-list">
+                <li class="category-item">Italian</li>
+                <li class="category-item">modern</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="restaurant-detail-menu">
+          <h2>Enjoy Our Menu !</h2>
+          <h3><small>Our</small> Foods</h3>
+          <ul>
+            <li>Paket rosemary</li>
+            <li>Toastie salmon</li>
+          </ul>
+          <h3><small>Our</small> Drinks</h3>
+          <ul>
+            <li>Paket rosemary</li>
+            <li>Toastie salmon</li>
+          </ul>
+        </section>
+        <section class="restaurant-detail-review">
+          <form action="#" id="reviewForm">
+            <label for="reviewInput">Write a review</label>
+            <br>
+            <textarea name="reviewInput" id="reviewInput" cols="30" rows="10"></textarea>
+            <button type="submit">Send</button>
+          </form>
+          <div class="review-list">
+            <article class="review-item">
+              <div class="review-author">
+                <img class="review-author__avatar" src="" alt="">
+                <strong class="review-author__name">Ahmad</strong>
+              </div>
+              <p class="review-content">Tidak rekomendasi untuk pelajar!</p>
+              <p class="review-date">13 November 2019</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
     <app-footer></app-footer>
   </body>
 </html>

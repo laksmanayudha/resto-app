@@ -20,6 +20,7 @@ class RestaurantItem extends Component {
       picture,
       city,
       rating,
+      detailUrl,
     } = this.state.restaurant;
 
     this.innerHTML = `
@@ -38,7 +39,7 @@ class RestaurantItem extends Component {
                     <p tabindex="0">${description}</p>
                 </div>
                 <div class="restaurant-action">
-                    <a href="#">See Detail</a>
+                    <a href="${detailUrl}">See Detail</a>
                 </div>
             </div>
         </article>`;

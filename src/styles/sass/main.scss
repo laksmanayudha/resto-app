@@ -1,0 +1,95 @@
+// variables
+$color_1: #FAF1E6;
+$color_2: #FDFAF6;
+$color_3: #E4EFE7;
+$color_4: #064420;
+$color_5: #222831;
+$color_6: #393E46;
+$color_7: #00ADB5;
+$color_8: #c2c2c2;
+$color_9: #FB8B24;
+$color_10: #757575;
+$color_11: #99b3a0;
+$color_12: rgba(81, 81, 81, 0.8);
+
+@mixin button-theme($theme: $color_3) {
+  padding: 1rem 1.2rem;
+  background-color: $theme;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: .15s;
+
+  &:hover {
+    @extend %background-hover;
+  }
+}
+
+@mixin text-ellipsis($line: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+%background-hover {
+  &:hover {
+    background-color: $color_4;
+    color: $color_1;
+    transition: .15s;
+  }
+}
+
+%section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+%img-fit {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+// Reset style
+@font-face {
+  font-family: 'inter';
+  src: url('/src/public/fonts/inter.ttf');
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family:'inter', sans-serif ;
+}
+
+a {
+  text-decoration: none;
+}
+
+#skipToContent {
+  position: fixed;
+  top: -100px;
+  left: 0;
+  z-index: 10;
+  background-color: $color_4;
+  color: $color_1;
+  padding: .5rem;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+.app-main {
+  width: 100%;
+  margin: 0 auto;
+}

@@ -1,3 +1,4 @@
+import '../../../../styles/sass/navbar.scss';
 import Component from '../component';
 
 class AppBar extends Component {
@@ -23,7 +24,7 @@ class AppBar extends Component {
                         </button>
                     </div>
                     <ul class="app-bar-nav-menu">
-                        <li class="app-bar-nav-item"><a href="/">Home</a></li>
+                        <li class="app-bar-nav-item"><a href="#">Home</a></li>
                         <li class="app-bar-nav-item"><a href="#">Favorite</a></li>
                         <li class="app-bar-nav-item"><a href="https://www.linkedin.com/in/i-gede-laksmana-yudha-2b61801b9/">About Us</a></li>
                     </ul>
