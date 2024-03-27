@@ -1,15 +1,15 @@
-class RestaurantItem extends HTMLElement {
+import Component from '../component';
+
+class RestaurantItem extends Component {
+  constructor() {
+    super();
+    this.state = {
+      restaurant: {},
+    };
+  }
+
   set restaurant(restaurant) {
-    this._restaurant = restaurant;
-    this.render();
-  }
-
-  get restaurant() {
-    return this._restaurant || {};
-  }
-
-  connectedCallback() {
-    this.render();
+    this.setState({ restaurant });
   }
 
   render() {
@@ -20,7 +20,7 @@ class RestaurantItem extends HTMLElement {
       picture,
       city,
       rating,
-    } = this.restaurant;
+    } = this.state.restaurant;
 
     this.innerHTML = `
         <article class="restaurant-item" id="restaurant_item_${id}">

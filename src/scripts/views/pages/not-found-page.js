@@ -1,6 +1,6 @@
-import Page from './page';
+import Component from '../components/component';
 
-class NotFoundPage extends Page {
+class NotFoundPage extends Component {
   render() {
     this.innerHTML = '<h1>404 Page not Found</h1>';
   }

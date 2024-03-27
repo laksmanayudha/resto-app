@@ -1,8 +1,6 @@
-class WhyUs extends HTMLElement {
-  connectedCallback() {
-    this.render();
-  }
+import Component from '../component';
 
+class WhyUs extends Component {
   render() {
     this.innerHTML = `
         <section class="why-us">

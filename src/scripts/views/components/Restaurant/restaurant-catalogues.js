@@ -1,17 +1,16 @@
+import Component from '../component';
 import './restaurant-item';
 
-class RestaurantCatalogues extends HTMLElement {
+class RestaurantCatalogues extends Component {
+  constructor() {
+    super();
+    this.state = {
+      restaurants: [],
+    };
+  }
+
   set restaurants(restaurants) {
-    this._restaurants = restaurants;
-    this.render();
-  }
-
-  get restaurants() {
-    return this._restaurants || [];
-  }
-
-  connectedCallback() {
-    this.render();
+    this.setState({ restaurants });
   }
 
   render() {
@@ -24,10 +23,10 @@ class RestaurantCatalogues extends HTMLElement {
           </div>
       </section>`;
 
-    this.fillItems(this.restaurants);
+    this._fillItems(this.state.restaurants);
   }
 
-  fillItems(restaurants) {
+  _fillItems(restaurants) {
     const restaurantListElement = this.querySelector('.restaurant-list');
     restaurantListElement.innerHTML = '';
 

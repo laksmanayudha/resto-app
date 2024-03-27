@@ -1,4 +1,4 @@
-class Page extends HTMLElement {
+class Component extends HTMLElement {
   constructor() {
     super();
     this.state = {};
@@ -33,4 +33,4 @@ class Page extends HTMLElement {
   afterEffect() {}
 }
 
-export default Page;
+export default Component;

@@ -1,8 +1,6 @@
-class AppBar extends HTMLElement {
-  connectedCallback() {
-    this.render();
-  }
+import Component from '../component';
 
+class AppBar extends Component {
   render() {
     this.innerHTML = `
         <header class="app-bar">
@@ -33,10 +31,10 @@ class AppBar extends HTMLElement {
             </div>
         </header>`;
 
-    this.invokeEventListener();
+    this._invokeEventListener();
   }
 
-  invokeEventListener() {
+  _invokeEventListener() {
     const appNavbar = this.querySelector('#appNavbar');
     const toggleNavbarButton = this.querySelector('#toggleNavbarButton');
     const closeNavbarButton = this.querySelector('#closeNavbarButton');

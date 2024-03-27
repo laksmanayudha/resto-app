@@ -3,11 +3,12 @@ import '../components/Hero/hero';
 import '../components/WhyUs/why-us';
 import '../components/Restaurant/restaurant-catalogues';
 import '../components/Skeleton/catalogue-skeleton';
-import Page from './page';
+import Component from '../components/component';
 import RestaurantSource from '../../data/restaurant-source';
 import ENDPOINT from '../../globals/api-endpoint';
+import DummyRequest from '../../utils/dummy-request';
 
-class HomePage extends Page {
+class HomePage extends Component {
   constructor() {
     super();
     this.state = {
@@ -16,7 +17,11 @@ class HomePage extends Page {
   }
 
   async effect() {
-    const restaurants = await RestaurantSource.all();
+    const restaurants = await DummyRequest.send(async () => {
+      const results = await RestaurantSource.all();
+      return results;
+    });
+
     this.setState({
       restaurants: restaurants.map((restaurant) => ({
         ...restaurant,
