@@ -51,7 +51,7 @@ class RestaurantSource {
       const { restaurant } = json;
       return restaurant;
     } catch (error) {
-      return null;
+      return {};
     }
   }
 

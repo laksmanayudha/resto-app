@@ -8,6 +8,10 @@ class ReviewItem extends Component {
     };
   }
 
+  set review(review) {
+    this.setState({ review });
+  }
+
   render() {
     const { name, review, date } = this.state.review;
     this.innerHTML = `

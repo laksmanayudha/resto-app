@@ -11,11 +11,12 @@ $color_9: #FB8B24;
 $color_10: #757575;
 $color_11: #99b3a0;
 $color_12: rgba(81, 81, 81, 0.8);
+$color_13: rgb(188, 225, 188);
 
 @mixin button-theme($theme: $color_3) {
   padding: 1rem 1.2rem;
   background-color: $theme;
-  border: none;
+  border: 1px solid $color_13;
   border-radius: 4px;
   cursor: pointer;
   transition: .15s;
@@ -68,7 +69,8 @@ html {
 * {
   padding: 0;
   margin: 0;
-  font-family:'inter', sans-serif ;
+  font-family:'inter', sans-serif;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -92,4 +94,8 @@ a {
 .app-main {
   width: 100%;
   margin: 0 auto;
+}
+
+.d-none {
+  display: none;
 }

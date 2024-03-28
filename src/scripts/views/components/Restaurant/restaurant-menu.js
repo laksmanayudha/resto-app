@@ -4,15 +4,19 @@ class RestaurantMenu extends Component {
   constructor() {
     super();
     this.state = {
-      menu: {
+      menus: {
         foods: [],
         drinks: [],
       },
     };
   }
 
+  set menus(menus) {
+    this.setState({ menus });
+  }
+
   render() {
-    const { menu: { foods, drinks } } = this.state;
+    const { menus: { foods, drinks } } = this.state;
     this.innerHTML = `
     <section class="restaurant-detail-menu">
       <h2>Our Menu</h2>
@@ -29,7 +33,7 @@ class RestaurantMenu extends Component {
               <i class="fas fa-circle-notch"></i>
               ${food.name}
             </li>
-            `)}
+            `).join('')}
           </ul>
         </div>
         <div class="menu-item">
@@ -44,7 +48,7 @@ class RestaurantMenu extends Component {
               <i class="fas fa-circle-notch"></i>
               ${drink.name}
             </li>
-            `)}
+            `).join('')}
           </ul>
         </div>
       </div>

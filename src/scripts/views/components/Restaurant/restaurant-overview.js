@@ -19,8 +19,9 @@ class RestaurantOverview extends Component {
       city,
       address,
       picture,
-      categories = [],
       rating,
+      reviewCount,
+      categories = [],
     } = this.state.restaurant;
 
     this.innerHTML = `
@@ -30,7 +31,7 @@ class RestaurantOverview extends Component {
         <div class="restaurant-detail__rating" tabindex="0">
           <i class="fas fa-star"></i>
           <strong>${rating}/5</strong>
-          <small>(16 review)</small>
+          <small>(${reviewCount} review)</small>
         </div>
       </div>
       <div class="restaurant-detail__general">

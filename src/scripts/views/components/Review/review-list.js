@@ -1,3 +1,4 @@
+import './review-item';
 import Component from '../component';
 
 class ReviewList extends Component {
@@ -8,6 +9,10 @@ class ReviewList extends Component {
     };
   }
 
+  set reviews(reviews) {
+    this.setState({ reviews });
+  }
+
   render() {
     this.innerHTML = `
     <div class="review-list">
@@ -15,6 +20,21 @@ class ReviewList extends Component {
       <div id="reviewItemContainer"></div>
     </div>
     `;
+
+    const { reviews } = this.state;
+    const reviewItemContainerElement = this.querySelector('#reviewItemContainer');
+
+    reviewItemContainerElement.innerHTML = '';
+    if (!reviews.length) {
+      reviewItemContainerElement.innerHTML = '<div class="no-review">No Review Available</div>';
+      return;
+    }
+
+    reviews.forEach((review) => {
+      const reviewItemElement = document.createElement('review-item');
+      reviewItemElement.review = review;
+      reviewItemContainerElement.appendChild(reviewItemElement);
+    });
   }
 }
 

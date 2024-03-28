@@ -5,6 +5,7 @@ class AppFooter extends Component {
   render() {
     this.innerHTML = `
     <footer class="app-footer">
+        <img src="./images/logos/cutlery.png" alt="brand image">
         Copyright © 2024 - Me'sResto Apps
     </footer>`;
   }

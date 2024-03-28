@@ -8,6 +8,20 @@
   border-bottom: 1px solid $color_3;
   padding: .5rem;
 
+  .app-bar-nav-backdrop {
+    transition: .3s;
+
+    &.--nav-backdrop-show {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, .7);
+      z-index: 1;
+    }
+  }
+
   .app-bar-wrapper {
     .app-bar-logo {
       display: flex;
@@ -45,9 +59,10 @@
       position: fixed;
       top: 0;
       left: -280px;
+      z-index: 2;
       bottom: 0;
       box-shadow: 1px 1px 10px -5px rgb(136, 136, 136, .5);
-      transition: .15s;
+      transition: .25s ease-in-out;
     
       .app-bar-nav-close {
         display: flex;
@@ -93,6 +108,10 @@
 
 @media screen and (min-width: 577px) {
   .app-bar {
+    .app-bar-nav-backdrop {
+      display: none;
+    }
+
     .app-bar-wrapper {
       display: flex;
 

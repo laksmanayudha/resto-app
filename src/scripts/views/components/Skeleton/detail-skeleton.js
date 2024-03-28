@@ -15,16 +15,28 @@ class DetailSkeleton extends Component {
           <div class="sk sk-heading sk-rounded mt-2">
             <div class="sk-fill"></div>
           </div>
-          <div class="sk sk-text sk-rounded mt-3">
-            <div class="sk-fill"></div>
-          </div>
-          <div class="sk sk-text sk-rounded mt-1">
-            <div class="sk-fill"></div>
-          </div>
-          <div class="sk sk-text sk-rounded mt-1">
+          <div class="sk sk-text-short sk-rounded mt-1">
             <div class="sk-fill"></div>
           </div>
           <div class="sk sk-text-short sk-rounded mt-1">
+            <div class="sk-fill"></div>
+          </div>
+          <div class="sk sk-heading sk-rounded mt-5">
+            <div class="sk-fill"></div>
+          </div>
+          <div class="sk sk-text sk-rounded mt-1">
+            <div class="sk-fill"></div>
+          </div>
+          <div class="sk sk-text sk-rounded mt-1">
+            <div class="sk-fill"></div>
+          </div>
+          <div class="sk sk-text sk-rounded mt-1">
+            <div class="sk-fill"></div>
+          </div>
+          <div class="sk sk-text sk-rounded mt-1">
+            <div class="sk-fill"></div>
+          </div>
+          <div class="sk sk-text sk-rounded mt-1">
             <div class="sk-fill"></div>
           </div>
           <div class="sk sk-button sk-rounded mt-3">
@@ -55,7 +67,10 @@ class DetailSkeleton extends Component {
         </div>
         <div class="detail-review-wrapper-skeleton mt-2">
           <div class="detail-review-form-skeleton">
-            <div class="sk sk-image sk-rounded">
+            <div class="sk sk-image-xs sk-rounded">
+              <div class="sk-fill"></div>
+            </div>
+            <div class="sk sk-image sk-rounded mt-3">
               <div class="sk-fill"></div>
             </div>
           </div>
