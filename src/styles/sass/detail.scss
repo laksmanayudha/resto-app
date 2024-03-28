@@ -1,5 +1,11 @@
 @import '/src/styles/sass/main.scss';
 
+%base-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 %base-section {
   padding: .8rem;
 }
@@ -14,17 +20,17 @@
 }
 
 .restaurant-detail-container {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+  @extend %base-page;
 
   .restaurant-detail-overview {
+    margin-top: 1.2rem;
+
     .restaurant-detail__hero {
       position: relative;
+      max-height: 520px;
 
       img {
         @extend %img-fit;
-        max-height: 600px;
       }
 
       .restaurant-detail__rating {
@@ -98,8 +104,10 @@
       gap: 1.2rem;
       
       .menu-item {
+        position: relative;
         padding: 1.5rem;
         border-radius: 4px;
+        overflow: hidden;
         flex: 1;
         
         &:nth-child(1) {
@@ -110,7 +118,19 @@
           background-color: $color_3;
         }
 
+        .menu-item__badge {
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding: .5rem;
+          background-color: rgba(0, 0, 0, 0.7);
+          border-radius: 0 0 0 4px;
+          color: $color_1;
+          font-weight: 500;
+        }
+
         h3 {
+          margin-top: 1.2rem;
           text-align: center;
           font-weight: 600;
           color: $color_4;
@@ -161,6 +181,8 @@
         }
 
         textarea {
+          font-size: 1rem;
+          padding: .8rem;
           border-radius: 4px;
           border: 1px solid $color_12;
           outline: 0px solid $color_3;
@@ -208,7 +230,33 @@
   }
 }
 
-@media screen and (min-width: 577px) {
+.detail-skeleton-container {
+  @extend %base-page;
+
+  .detail-overview-skeleton {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .detail-menu-skeleton {
+    .detail-menu-list-skeleton {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+  }
+
+  .detail-review-skeleton {
+    .detail-review-wrapper-skeleton {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
   .restaurant-detail-container {
     .restaurant-detail-overview {
       display: flex;
@@ -233,23 +281,38 @@
       }
     }
   }
+
+  .detail-skeleton-container {
+    .detail-overview-skeleton {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .detail-menu-skeleton {
+      .detail-menu-list-skeleton {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 992px) {
   .restaurant-detail-container {
     .restaurant-detail-review {
       .review-wrapper {
-        display: flex;
+        display: grid;
+        grid-template-columns: 5fr 7fr;;
         gap: 1.2rem;
-
-        form {
-          flex: 5;
-        }
 
         .review-list {
           border-top: none;
-          flex: 7;
         }
+      }
+    }
+  }
+  .detail-skeleton-container {
+    .detail-review-skeleton {
+      .detail-review-wrapper-skeleton {
+        grid-template-columns: 5fr 7fr;
       }
     }
   }

@@ -11,20 +11,21 @@ class App {
 
   init() {
     window.addEventListener('hashchange', () => {
-      this.renderPage();
+      this._renderPage();
     });
 
     window.addEventListener('load', () => {
-      this.renderPage();
+      this._renderPage();
     });
   }
 
-  renderPage() {
-    // this._content.innerHTML = '';
+  _renderPage() {
+    this._content.innerHTML = '';
 
-    // const url = URLParser.parseActiveWithCombiner();
-    // const Page = this._router.findPage(url);
-    // this._content.appendChild(new Page());
+    const url = URLParser.parseActiveWithCombiner();
+    const Page = this._router.findPage(url);
+    window.scrollTo({ top: 0 });
+    this._content.appendChild(new Page());
   }
 }
 

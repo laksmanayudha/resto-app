@@ -5,13 +5,14 @@ import NotFoundPage from '../views/pages/not-found-page';
 const router = {
   routes: {
     '/': HomePage,
+    '/favorite': HomePage,
     '/detail/:id': DetailPage,
-    notFoundPage: NotFoundPage,
+    notFound: NotFoundPage,
   },
 
   findPage(path) {
     const page = this.routes[path];
-    return page || this.routes.notFoundPage;
+    return page || this.routes.notFound;
   },
 };
 
