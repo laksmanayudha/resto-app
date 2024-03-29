@@ -1,0 +1,80 @@
+@import '/src/styles/sass/main.scss';
+
+%base-page {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1024px;
+  min-height: 85vh;
+  margin: .8rem auto;
+  padding: .8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.favorite-page {
+  @extend %base-page;
+
+  h2 {
+    @extend %section-title;
+  }
+
+  & > p {
+    @extend %section-sub-title;
+  }
+
+  .favorite-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 1.2rem;
+    gap: 1.5rem;
+
+    @extend %restaurant-item;
+
+    a.no-catalogue {
+      @include button-theme;
+    }
+  }
+}
+
+.catalogue-skeleton-container {
+  @extend %base-page;
+
+  .catalogue-skeleton-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 577px) {
+  .favorite-page {
+    .favorite-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .catalogue-skeleton-container {
+    .catalogue-skeleton-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .favorite-page {
+    .favorite-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .catalogue-skeleton-container {
+    .catalogue-skeleton-list {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}

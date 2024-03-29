@@ -25,8 +25,8 @@ class AppBar extends Component {
             </button>
           </div>
           <ul class="app-bar-nav-menu">
-            <li class="app-bar-nav-item"><a href="#">Home</a></li>
-            <li class="app-bar-nav-item"><a href="#">Favorite</a></li>
+            <li class="app-bar-nav-item"><a href="/#">Home</a></li>
+            <li class="app-bar-nav-item"><a href="/#/favorite">Favorite</a></li>
             <li class="app-bar-nav-item"><a href="https://www.linkedin.com/in/i-gede-laksmana-yudha-2b61801b9/" target="_blank">About Us</a></li>
           </ul>
         </nav>

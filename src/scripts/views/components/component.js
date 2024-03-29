@@ -7,7 +7,7 @@ class Component extends HTMLElement {
   async connectedCallback() {
     this.render();
     await this.effect();
-    this.afterEffect();
+    await this.afterEffect();
   }
 
   set state(state) {
@@ -30,7 +30,7 @@ class Component extends HTMLElement {
   render() {}
 
   // to be implemented by children
-  afterEffect() {}
+  async afterEffect() {}
 }
 
 export default Component;

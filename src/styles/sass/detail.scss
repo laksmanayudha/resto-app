@@ -19,7 +19,7 @@
   line-height: 3rem;
 }
 
-.restaurant-detail-container {
+.restaurant-detail-page {
   @extend %base-page;
 
   .restaurant-detail-overview {
@@ -290,10 +290,15 @@
   border-radius: 50%;
   box-shadow: 1px 1px 10px -3px $color_12;
   cursor: pointer;
+
+  &:active {
+    font-size: 1.6rem;
+    transition: .1s;
+  }
 }
 
 @media screen and (min-width: 769px) {
-  .restaurant-detail-container {
+  .restaurant-detail-page {
     .restaurant-detail-overview {
       display: flex;
       padding: .7rem;
@@ -332,7 +337,7 @@
 }
 
 @media screen and (min-width: 992px) {
-  .restaurant-detail-container {
+  .restaurant-detail-page {
     .restaurant-detail-review {
       .review-wrapper {
         display: grid;

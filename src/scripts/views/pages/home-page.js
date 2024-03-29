@@ -33,9 +33,11 @@ class HomePage extends Component {
 
   render() {
     this.innerHTML = `
-      <app-hero></app-hero>
-      <catalogue-skeleton></catalogue-skeleton>
-      <why-us></why-us>
+      <div class="home-page">
+        <app-hero></app-hero>
+        <catalogue-skeleton></catalogue-skeleton>
+        <why-us></why-us>
+      </dvi>
     `;
   }
 
