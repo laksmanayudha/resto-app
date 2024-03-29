@@ -14,7 +14,7 @@ $color_12: rgba(81, 81, 81, 0.8);
 $color_13: rgb(188, 225, 188);
 
 @mixin button-theme($theme: $color_3) {
-  padding: 1rem 1.2rem;
+  padding: .9rem 1.1rem;
   background-color: $theme;
   border: 1px solid $color_13;
   border-radius: 4px;

@@ -46,6 +46,7 @@ class DetailPage extends Component {
     const restaurantMenuElement = this.querySelector('restaurant-menu');
     const restaurantReviewElement = this.querySelector('restaurant-review');
 
+    // restaurant overview
     const {
       id,
       address,
@@ -71,8 +72,25 @@ class DetailPage extends Component {
       picture: ENDPOINT.largeImage(pictureId),
     };
 
+    // restaurant menu
     restaurantMenuElement.menus = menus;
-    restaurantReviewElement.reviews = customerReviews;
+
+    // restaurant review
+    restaurantReviewElement.reviews = customerReviews.reverse();
+
+    this._invokeEventListener();
+  }
+
+  _invokeEventListener() {
+    const restaurantReviewElement = this.querySelector('restaurant-review');
+    restaurantReviewElement.onReviewSubmit = async ({ name, review }) => {
+      const { id } = this.state.restaurant;
+      const newReviews = await DummyRequest.send(async () => {
+        const results = await RestaurantSource.addReview({ id, name, review });
+        return results;
+      });
+      restaurantReviewElement.reviews = newReviews.reverse();
+    };
   }
 }
 

@@ -6,8 +6,10 @@ class RestaurantReview extends Component {
   constructor() {
     super();
     this.state = {
+      review: { name: '', review: '' },
       reviews: [],
       validation: null,
+      onReviewSubmit: async () => {},
     };
   }
 
@@ -15,8 +17,14 @@ class RestaurantReview extends Component {
     this.setState({ reviews });
   }
 
+  set onReviewSubmit(onReviewSubmit) {
+    this.setState({ onReviewSubmit });
+  }
+
   render() {
     const { validation } = this.state;
+    const { name, review } = this.state.review;
+
     this.innerHTML = `
     <section class="restaurant-detail-review">
       <h2>Reviews</h2>
@@ -26,7 +34,12 @@ class RestaurantReview extends Component {
             ${validation ? `<li>${validation}</li>` : ''}
           </ul>
           <label for="nameInput">Name</label>
-          <input type="text" id="nameInput" placeholder="Your name here..." />
+          <input
+            type="text"
+            id="nameInput"
+            placeholder="Your name here..."
+            value="${name}"
+          />
           <label for="reviewInput">Review</label>
           <textarea
             name="reviewInput"
@@ -34,7 +47,7 @@ class RestaurantReview extends Component {
             cols="20"
             rows="10"
             placeholder="Please write your review here..."
-          ></textarea>
+          >${review}</textarea>
           <button type="submit" id="submitReviewButton">
             <span>Send Review</span>
           </button>
@@ -56,22 +69,24 @@ class RestaurantReview extends Component {
       const submitReviewButton = this.querySelector('#submitReviewButton');
       const { startLoading, stopLoading } = Loader(submitReviewButton, 'Sending...');
       startLoading();
-      setTimeout(() => {
-        this._sendReview();
-        stopLoading();
-      }, 2000);
+      await this._submitReview();
+      stopLoading();
     });
   }
 
-  _sendReview() {
+  async _submitReview() {
+    const { name, review } = this._getReviewInputValue();
     try {
-      const { name, review } = this._getReviewInputValue();
       const validation = this._validateReview({ name, review });
       if (validation.fail) throw new Error(validation.message);
 
+      await this.state.onReviewSubmit({ name, review });
+
       this._clearValidation();
+      this.setState({ review: { name: '', review: '' } });
     } catch (error) {
       this._showValidation(error.message);
+      this.setState({ review: { name, review } });
     }
   }
 
