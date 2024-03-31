@@ -7,7 +7,7 @@ import router from './routes/routes';
 const app = new App({
   content: document.querySelector('#appMain'),
   router,
-  serviceWorker: './sw-workbox.js',
+  serviceWorker: './sw.bundle.js',
 });
 
 app.init();

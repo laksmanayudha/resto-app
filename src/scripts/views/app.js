@@ -2,6 +2,7 @@ import './components/Navbar/app-bar';
 import './components/Footer/app-footer';
 import './components/Backdrop/app-backdrop';
 import URLParser from '../routes/url-parser';
+import serviceWorkerRegister from '../utils/sw-register';
 
 class App {
   constructor({ content, router, serviceWorker }) {
@@ -18,9 +19,10 @@ class App {
       appBackdrop.show = false;
     });
 
-    window.addEventListener('load', () => {
+    window.addEventListener('load', async () => {
       this._renderPage();
       appBackdrop.show = false;
+      await serviceWorkerRegister(this._serviceWorker);
     });
   }
 
