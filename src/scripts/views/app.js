@@ -11,12 +11,16 @@ class App {
   }
 
   init() {
+    const appBackdrop = document.querySelector('app-backdrop');
+
     window.addEventListener('hashchange', () => {
       this._renderPage();
+      appBackdrop.show = false;
     });
 
     window.addEventListener('load', () => {
       this._renderPage();
+      appBackdrop.show = false;
     });
   }
 

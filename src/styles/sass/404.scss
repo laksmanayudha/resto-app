@@ -1,0 +1,21 @@
+@import '/src/styles/sass/main.scss';
+
+.not-found-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .8rem;
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: $color_6;
+    margin-top: 1.2rem;
+  }
+
+  a {
+    @include button-theme;
+    color: $color_6;
+  }
+}

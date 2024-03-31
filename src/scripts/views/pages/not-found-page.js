@@ -1,8 +1,14 @@
+import '../../../styles/sass/404.scss';
 import Component from '../components/component';
 
 class NotFoundPage extends Component {
   render() {
-    this.innerHTML = '<h1>404 Page not Found</h1>';
+    this.innerHTML = `
+    <div class="not-found-page">
+      <h2>404 Page not Found</h2>
+      <a href="/#">Back to Home</a>
+    </div>
+    `;
   }
 }
 
