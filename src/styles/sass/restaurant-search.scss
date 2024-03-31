@@ -60,11 +60,18 @@
       width: 100%;
       overflow: hidden;
 
+      small {
+        padding: .8rem 1rem;
+        text-align: left;
+        border-bottom: 1px solid $color_3;
+      }
+
       .search-list {
         display: flex;
         flex-direction: column;
         gap: .5rem;
-        margin-top: .8rem;
+        max-height: 480px;
+        overflow: auto;
   
         .search-item {
           list-style: none;
@@ -123,7 +130,8 @@
     }
 
     .search-body.--search-show {
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
   }
 }

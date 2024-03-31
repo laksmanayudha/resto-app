@@ -38,6 +38,7 @@ class RestaurantSearch extends Component {
           </form>
         </div>
         <div class="search-body">
+          <small class="search-found">No result found.</small>
           <ul class="search-list">
             <li class="no-result">Type any keyword to find...</li>
           </ul>
@@ -50,9 +51,11 @@ class RestaurantSearch extends Component {
   }
 
   _fillItems(restaurants) {
+    const searchFound = this.querySelector('.search-found');
     const searchList = this.querySelector('.search-list');
     searchList.innerHTML = '';
 
+    searchFound.innerText = `Total ${restaurants.length} results found.`;
     if (restaurants.length) {
       restaurants.forEach((restaurant) => {
         const searchItem = document.createElement('restaurant-search-item');
