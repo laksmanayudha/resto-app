@@ -6,7 +6,6 @@ import '../components/Restaurant/restaurant-item';
 import Component from '../components/component';
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 import ENDPOINT from '../../globals/api-endpoint';
-import DummyRequest from '../../utils/dummy-request';
 
 class FavoritePage extends Component {
   constructor() {
@@ -17,18 +16,11 @@ class FavoritePage extends Component {
   }
 
   async effect() {
-    const restaurants = await DummyRequest.send(async () => {
-      const results = await FavoriteRestaurantIdb.all();
-      return results;
-    });
+    const restaurants = await FavoriteRestaurantIdb.all();
     this.setState({ restaurants });
   }
 
   render() {
-    this.innerHTML = '<catalogue-skeleton></catalogue-skeleton>';
-  }
-
-  afterEffect() {
     this.innerHTML = `
     <section class="favorite-page">
       <h2>Favorite Restaurant</h2>
@@ -36,7 +28,9 @@ class FavoritePage extends Component {
       <div class="favorite-list"></div>
     </section>
     `;
+  }
 
+  afterEffect() {
     const favoriteListElement = this.querySelector('.favorite-list');
     const { restaurants } = this.state;
 

@@ -34,87 +34,6 @@ $color_13: rgb(188, 225, 188);
   text-overflow: ellipsis;
 }
 
-%restaurant-item {
-  .restaurant-item {
-    width: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 1px 1px 7px -3px $color_12;
-    transition: .15s;
-
-
-    .restaurant-header {
-      position: relative;
-      height: 230px;
-
-      h3 {
-        min-width: 30%;
-        font-size: 1.2rem;
-        text-align: center;
-        background-color: $color_3;
-        padding: .7rem .5rem;
-        border-radius: 0 0 10px 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: .9;
-      }
-
-      img {
-        @extend %img-fit;
-      }
-    }
-
-    .restaurant-body {
-      display: flex;
-      flex-direction: column;
-      height: 180px;
-      margin-top: .5rem;
-      padding: 1.2rem .8rem;
-
-      .restaurant-detail {
-        flex: 1;
-
-        .restaurant-rating {
-          i {
-            color: $color_9;
-          }
-        }
-
-        h3 {
-          @include text-ellipsis(1);
-          margin-top: .5rem;
-          font-size: 1.2rem;
-        }
-
-        p {
-          @include text-ellipsis(3);
-          margin-top: .5rem;
-        }
-      }
-
-      .restaurant-action {
-        a {
-          @include button-theme;
-          color: $color_5;
-          display: inline-block;
-          margin-top: 1rem;
-          text-align: center;
-        }
-      }
-    }
-
-    &:hover {
-      transform: translate(0, -8px);
-    }
-  }
-
-  .no-catalogue {
-    text-align: center;
-    grid-column: 1 / -1;
-  }
-}
-
 %background-hover {
   &:hover {
     background-color: $color_4;
@@ -180,6 +99,7 @@ a {
 
 .app-main {
   width: 100%;
+  min-height: 85vh;
   margin: 0 auto;
 }
 

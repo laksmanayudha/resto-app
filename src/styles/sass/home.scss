@@ -4,7 +4,7 @@
   .hero {
     figure {
       position: relative;
-      height: 450px;
+      height: 420px;
   
       img {
         @extend %img-fit;
@@ -22,10 +22,10 @@
         align-items: center;
         text-align: center;
         background: rgb(0,0,0);
-        background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 55%, rgba(255,255,255,0) 70%);
+        background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 55%, rgba(255,255,255,0) 90%);
   
         .hero-content {
-          margin-bottom: 80px;
+          // margin-bottom: 100px;
           color: $color_1;
           line-height: 1.4rem;
   
@@ -68,8 +68,6 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
         margin-top: 1.5rem;
-  
-        @extend %restaurant-item;
       }
     }
   }
@@ -206,7 +204,7 @@
   .home-page {
     .hero {
       figure {
-        img {
+        .hero__image {
           min-width: 1000px;
         }
       }

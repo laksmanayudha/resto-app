@@ -1,0 +1,129 @@
+@import '/src/styles/sass/main.scss';
+
+.search {
+  position: relative;
+  z-index: 6;
+  padding: .5rem;
+  margin: 25px auto;
+
+  .search-wrapper {
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+    position: relative;
+  
+    .search-header {          
+      form {
+        .input-group {
+          display: flex;
+          align-items: center;
+          padding: .1rem;
+          overflow: hidden;
+          border-radius: 1.5rem;
+          box-shadow: 1px 1px 7px -3px $color_12;
+          background-color: white;
+    
+          input {
+            width: 100%;
+            font-size: 1.1rem;
+            padding: .8rem 0;
+            flex: 1;
+            border: none;
+            outline: none;
+            color: $color_6;
+            background-color: transparent;
+          }
+    
+          .input-group-prepend, .input-group-append {
+            font-size: 1.1rem;
+            padding: .8rem 1rem;
+            color: $color_8;
+            background-color: transparent;
+            border: none;
+          }
+          
+          .input-group-append {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  
+    .search-body {
+      display: none;
+      position: absolute;
+      margin-top: .5rem;
+      box-shadow: 0px 0px 7px -3px $color_12;
+      border-radius: 8px;
+      background-color: white;
+      z-index: 6;
+      width: 100%;
+      overflow: hidden;
+
+      .search-list {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        margin-top: .8rem;
+  
+        .search-item {
+          list-style: none;
+          padding: .5rem 1rem;
+  
+          &:hover {
+            background-color: $color_3;
+          }
+  
+          a {
+            color: $color_6;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+  
+            .search-item__image {
+              border-radius: 8px;
+              min-width: 80px;
+              height: 80px;
+              overflow: hidden;
+  
+              img {
+                @extend %img-fit;
+              }
+            }
+  
+            .search-item__content {
+              display: flex;
+              flex-direction: column;
+              gap: .2rem;
+              padding: .4rem;
+              text-align: left;
+  
+              span {
+                font-size: .8rem;
+
+                i {
+                  color: $color_9;
+                }
+              }
+  
+              p {
+                font-size: .95rem;
+                @include text-ellipsis(1);
+              }
+            }
+          }
+        }
+
+        .no-result {
+          text-align: left;
+          padding: 1.2rem;
+          color: $color_10;
+        }
+      }
+    }
+
+    .search-body.--search-show {
+      display: block;
+    }
+  }
+}

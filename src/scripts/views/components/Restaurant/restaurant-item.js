@@ -1,3 +1,4 @@
+import '../../../../styles/sass/restaurant-item.scss';
 import Component from '../component';
 
 class RestaurantItem extends Component {

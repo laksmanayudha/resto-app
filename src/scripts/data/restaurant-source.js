@@ -4,10 +4,11 @@ class RestaurantSource {
   static async fetchData(url, options = {}) {
     try {
       const response = await fetch(url, options);
-      return await response.json();
+      const responseJson = await response.json();
+      return responseJson;
     } catch (error) {
       console.log(error);
-      return null;
+      return { error: true, message: error.message };
     }
   }
 

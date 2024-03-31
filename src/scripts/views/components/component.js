@@ -23,6 +23,22 @@ class Component extends HTMLElement {
     this.render();
   }
 
+  selector(query) {
+    return () => this.querySelector(query);
+  }
+
+  selectorAll(query) {
+    return () => this.querySelectorAll(query);
+  }
+
+  documentSelector(query) {
+    return () => document.querySelector(query);
+  }
+
+  documentSelectorAll(query) {
+    return () => document.querySelectorAll(query);
+  }
+
   // to be implemented by children
   async effect() {}
 

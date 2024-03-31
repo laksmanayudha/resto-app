@@ -1,5 +1,6 @@
 import './components/Navbar/app-bar';
 import './components/Footer/app-footer';
+import './components/Backdrop/app-backdrop';
 import URLParser from '../routes/url-parser';
 
 class App {

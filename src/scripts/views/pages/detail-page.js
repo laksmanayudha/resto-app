@@ -5,11 +5,11 @@ import '../components/Restaurant/restaurant-review';
 import '../components/Skeleton/detail-skeleton';
 import '../components/Favorite/favorite-button';
 import Component from '../components/component';
-import DummyRequest from '../../utils/dummy-request';
 import RestaurantSource from '../../data/restaurant-source';
 import URLParser from '../../routes/url-parser';
 import ENDPOINT from '../../globals/api-endpoint';
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
+import shouldLoading from '../../utils/should-loading';
 
 class DetailPage extends Component {
   constructor() {
@@ -22,15 +22,23 @@ class DetailPage extends Component {
   async effect() {
     // get restaurant datail
     const url = URLParser.parseActiveWithoutCombiner();
-    const restaurant = await DummyRequest.send(async () => {
-      const result = RestaurantSource.detail(url.id);
-      return result;
+    const restaurant = await shouldLoading({
+      todo: async () => {
+        const results = await RestaurantSource.detail(url.id);
+        return results;
+      },
+      loading: () => {
+        const restaurantDetailPage = this.querySelector('.restaurant-detail-page');
+        const detailSkeleton = document.createElement('detail-skeleton');
+        restaurantDetailPage.innerHTML = '';
+        restaurantDetailPage.appendChild(detailSkeleton);
+      },
     });
     this.setState({ restaurant });
   }
 
   render() {
-    this.innerHTML = '<detail-skeleton></detail-skeleton>';
+    this.innerHTML = '<div class="restaurant-detail-page"></div>';
   }
 
   async afterEffect() {
@@ -91,10 +99,7 @@ class DetailPage extends Component {
     const restaurantReviewElement = this.querySelector('restaurant-review');
     restaurantReviewElement.onReviewSubmit = async ({ name, review }) => {
       const { id } = this.state.restaurant;
-      const newReviews = await DummyRequest.send(async () => {
-        const results = await RestaurantSource.addReview({ id, name, review });
-        return results;
-      });
+      const newReviews = await RestaurantSource.addReview({ id, name, review });
       restaurantReviewElement.reviews = newReviews.reverse();
     };
 

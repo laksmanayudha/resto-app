@@ -3,8 +3,8 @@
 %base-page {
   box-sizing: border-box;
   width: 100%;
+  height: 100%;
   max-width: 1024px;
-  min-height: 85vh;
   margin: .8rem auto;
   padding: .8rem;
   display: flex;
@@ -29,8 +29,6 @@
     grid-template-columns: 1fr;
     margin-top: 1.2rem;
     gap: 1.5rem;
-
-    @extend %restaurant-item;
 
     a.no-catalogue {
       @include button-theme;

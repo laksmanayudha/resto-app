@@ -1,5 +1,16 @@
 .sk-container {
+  box-sizing: border-box;
   padding: .5rem;
+}
+
+.sk-horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+}
+
+.sk-full {
+  width: 100%;
 }
 
 .sk {
@@ -7,6 +18,7 @@
   overflow: hidden;
   animation: skeleton-loading 1s linear infinite alternate;
 }
+
 .sk-fill {
   display: block;
   width: 100%;
@@ -19,6 +31,11 @@
 
 .sk-shadow {
   box-shadow: 1px 1px 10px -5px rgb(136, 136, 136, .5);
+}
+
+.sk-img-avatar {
+  width: 80px;
+  height: 80px;
 }
 
 .sk-image {
@@ -34,7 +51,7 @@
 }
 
 .sk-image-lg {
-  height: 430px;
+  height: 420px;
 }
 
 .sk-heading {

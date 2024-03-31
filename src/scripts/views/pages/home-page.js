@@ -6,7 +6,7 @@ import '../components/Skeleton/catalogue-skeleton';
 import Component from '../components/component';
 import RestaurantSource from '../../data/restaurant-source';
 import ENDPOINT from '../../globals/api-endpoint';
-import DummyRequest from '../../utils/dummy-request';
+import shouldLoading from '../../utils/should-loading';
 
 class HomePage extends Component {
   constructor() {
@@ -17,9 +17,17 @@ class HomePage extends Component {
   }
 
   async effect() {
-    const restaurants = await DummyRequest.send(async () => {
-      const results = await RestaurantSource.all();
-      return results;
+    const restaurants = await shouldLoading({
+      todo: async () => {
+        const results = await RestaurantSource.all();
+        return results;
+      },
+      loading: () => {
+        const catalogueContainer = this.querySelector('#catalogueContainer');
+        const catalogueSkeleton = document.createElement('catalogue-skeleton');
+        catalogueContainer.innerHTML = '';
+        catalogueContainer.appendChild(catalogueSkeleton);
+      },
     });
 
     this.setState({
@@ -35,7 +43,7 @@ class HomePage extends Component {
     this.innerHTML = `
       <div class="home-page">
         <app-hero></app-hero>
-        <catalogue-skeleton></catalogue-skeleton>
+        <div id="catalogueContainer"></div>
         <why-us></why-us>
       </dvi>
     `;
@@ -48,8 +56,9 @@ class HomePage extends Component {
       restoCatalogueElement.restaurants = restaurants;
     }
 
-    const catalogueSkeletonElement = this.querySelector('catalogue-skeleton');
-    catalogueSkeletonElement.replaceWith(restoCatalogueElement);
+    const catalogueContainer = this.querySelector('#catalogueContainer');
+    catalogueContainer.innerHTML = '';
+    catalogueContainer.appendChild(restoCatalogueElement);
   }
 }
 
