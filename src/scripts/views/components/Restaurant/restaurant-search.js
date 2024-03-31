@@ -5,6 +5,7 @@ import Component from '../component';
 import RestaurantSource from '../../../data/restaurant-source';
 import ENDPOINT from '../../../globals/api-endpoint';
 import debounce from '../../../utils/debounce';
+import shouldLoading from '../../../utils/should-loading';
 
 class RestaurantSearch extends Component {
   constructor() {
@@ -66,14 +67,18 @@ class RestaurantSearch extends Component {
       searchList.innerHTML = '<li class="no-result">No matched result</li>';
     }
 
-    this._invokeEventListener();
+    const restaurantSearchItem = this.querySelectorAll('restaurant-search-item');
+    restaurantSearchItem?.forEach((searchItem) => {
+      searchItem.addEventListener('click', () => {
+        this._hideSearchBody();
+      });
+    });
   }
 
   _invokeEventListener() {
     const appBackdrop = document.querySelector('app-backdrop');
     const searchInput = this.querySelector('#searchInput');
     const searchResetButton = this.querySelector('#searchResetButton');
-    const restaurantSearchItem = this.querySelectorAll('restaurant-search-item');
     const debouncedSearchRestaurant = debounce({
       todo: this._searchRestaurant,
       preTodo: () => {
@@ -94,26 +99,34 @@ class RestaurantSearch extends Component {
       this._hideSearchBody();
     });
 
-    restaurantSearchItem?.forEach((searchItem) => {
-      searchItem.addEventListener('click', () => {
-        this._hideSearchBody();
-      });
-    });
-
     searchResetButton.addEventListener('click', () => {
       this._fillItems([]);
       this._focusToInput();
     });
 
-    searchInput.addEventListener('keyup', async (e) => {
+    searchInput.addEventListener('input', async (e) => {
       e.preventDefault();
       const keyword = searchInput.value.toLowerCase();
       if (keyword) debouncedSearchRestaurant(keyword);
+      else this._fillItems([]);
     });
   }
 
   async _searchRestaurant(keyword) {
-    const { restaurants } = await RestaurantSource.search(keyword);
+    const { restaurants } = await shouldLoading({
+      todo: async () => {
+        const results = await RestaurantSource.search(keyword);
+        return results;
+      },
+      loading: () => {
+        const searchList = this.querySelector('.search-list');
+        searchList.innerHTML = `
+        <search-skeleton></search-skeleton>
+        <search-skeleton></search-skeleton>
+        <search-skeleton></search-skeleton>
+        `;
+      },
+    });
     this._fillItems(restaurants);
   }
 
