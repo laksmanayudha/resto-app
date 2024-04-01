@@ -283,11 +283,10 @@
   bottom: 15px;
   right: 15px;
   padding: .9rem 1.1rem;
-  outline: none;
-  border: none;
   font-size: 1.3rem;
-  color: white;
+  color: $color_2;
   background-color: $color_4;
+  border: 1px solid $color_4;
   border-radius: 50%;
   box-shadow: 1px 1px 10px -3px $color_12;
   cursor: pointer;

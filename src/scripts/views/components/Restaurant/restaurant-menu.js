@@ -20,11 +20,11 @@ class RestaurantMenu extends Component {
     const { foods = [], drinks = [] } = menus;
     this.innerHTML = `
     <section class="restaurant-detail-menu">
-      <h2>Our Menu</h2>
+      <h2 tabindex="0">Our Menu</h2>
       <div class="menu-wrapper">
         <div class="menu-item">
           <div class="menu-item__badge"><small>${foods.length} foods</small></div>
-          <h3>
+          <h3 tabindex="0">
             <i class="fas fa-utensils"></i>
             <small>Our</small> Foods
           </h3>
@@ -39,7 +39,7 @@ class RestaurantMenu extends Component {
         </div>
         <div class="menu-item">
           <div class="menu-item__badge"><small>${drinks.length} drinks</small></div>
-          <h3>
+          <h3 tabindex="0">
             <i class="fas fa-glass-cheers"></i>
             <small>Our</small> Drinks
           </h3>

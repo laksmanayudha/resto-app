@@ -37,7 +37,7 @@ class RestaurantOverview extends Component {
     this.innerHTML = `
     <section class="restaurant-detail-overview">
       <div class="restaurant-detail__hero">
-        <img src="${picture}" alt="restaurant image">
+        <img crossorigin="anonymous" src="${picture}" alt="restaurant image">
         <div class="restaurant-detail__rating" tabindex="0">
           <i class="fas fa-star"></i>
           <strong>${rating}/5</strong>
@@ -45,16 +45,16 @@ class RestaurantOverview extends Component {
         </div>
       </div>
       <div class="restaurant-detail__general">
-        <h2 class="restaurant-detail__name">${name}</h2>
-        <p class="restaurant-detail__city"><i class="fas fa-building"></i> ${city}</p>
-        <p class="restaurant-detail__address"><i class="fas fa-map-pin"></i> ${address}</p>
+        <h2 class="restaurant-detail__name" tabindex="0">${name}</h2>
+        <p class="restaurant-detail__city" tabindex="0"><i class="fas fa-building"></i> ${city}</p>
+        <p class="restaurant-detail__address" tabindex="0"><i class="fas fa-map-pin"></i> ${address}</p>
         <div class="restaurant-detail__description">
           <h3>Description</h3>
-          <p>${description}</p>
+          <p tabindex="0">${description}</p>
         </div>
         <div class="restaurant-detail__category">
           <ul class="category-list">
-            ${categories.map((category) => `<li class="category-item">${category.name}</li>`).join('')}
+            ${categories.map((category) => `<li class="category-item" tabindex="0">${category.name}</li>`).join('')}
           </ul>
         </div>
       </div>

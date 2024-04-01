@@ -23,8 +23,8 @@ class FavoritePage extends Component {
   render() {
     this.innerHTML = `
     <section class="favorite-page">
-      <h2>Favorite Restaurant</h2>
-      <p>Discover restaurants you love and save them for search later.</p>
+      <h2 tabindex="0">Favorite Restaurant</h2>
+      <p tabindex="0">Discover restaurants you love and save them for search later.</p>
       <div class="favorite-list"></div>
     </section>
     `;

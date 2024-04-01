@@ -31,14 +31,17 @@ class RestaurantSearch extends Component {
                 placeholder="Find any restaurant by name, category, or menu"
                 autocomplete="off"
               >
-              <button class="input-group-append" type="reset" id="searchResetButton">
+              <button class="input-group-append" type="reset" id="searchResetButton" aria-label="reset search input">
                 <i class="fas fa-times"></i>
               </button>
             </div>
           </form>
         </div>
         <div class="search-body">
-          <small class="search-found">No result found.</small>
+          <div class="search-tools">
+            <small class="search-found">No result found.</small>
+            <button type="button" class="search-found" aria-label="close search" id="closeSearchButton">close</button>
+          </div>
           <ul class="search-list">
             <li class="no-result">Type any keyword to find...</li>
           </ul>
@@ -80,6 +83,7 @@ class RestaurantSearch extends Component {
 
   _invokeEventListener() {
     const appBackdrop = document.querySelector('app-backdrop');
+    const closeSearchButton = this.querySelector('#closeSearchButton');
     const searchInput = this.querySelector('#searchInput');
     const searchResetButton = this.querySelector('#searchResetButton');
     const debouncedSearchRestaurant = debounce({
@@ -98,6 +102,10 @@ class RestaurantSearch extends Component {
       this._showSearchBody();
     });
 
+    searchInput.addEventListener('focus', () => {
+      this._showSearchBody();
+    });
+
     appBackdrop.addEventListener('click', () => {
       this._hideSearchBody();
     });
@@ -109,9 +117,14 @@ class RestaurantSearch extends Component {
 
     searchInput.addEventListener('input', async (e) => {
       e.preventDefault();
+
       const keyword = searchInput.value.toLowerCase();
       if (keyword) debouncedSearchRestaurant(keyword);
       else this._fillItems([]);
+    });
+
+    closeSearchButton.addEventListener('click', () => {
+      this._hideSearchBody();
     });
   }
 

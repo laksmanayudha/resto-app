@@ -23,9 +23,9 @@ class RestaurantSearchItem extends Component {
     } = this.state.restaurant;
     this.innerHTML = `
     <li class="search-item">
-      <a href="${detailUrl}">
+      <a href="${detailUrl}" tabindex="0">
         <div class="search-item__image">
-          <img src="${picture}" alt="restaurant image">
+          <img crossorigin="anonymous" src="${picture}" alt="restaurant image">
         </div>
         <div class="search-item__content">
           <h3>${name}</h3>

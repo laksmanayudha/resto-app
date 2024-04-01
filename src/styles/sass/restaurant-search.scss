@@ -60,10 +60,19 @@
       width: 100%;
       overflow: hidden;
 
-      small {
-        padding: .8rem 1rem;
-        text-align: left;
+      .search-tools {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 .8rem;
+        align-items: center;
         border-bottom: 1px solid $color_3;
+
+        button {
+            padding: 1rem .8rem;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
       }
 
       .search-list {
@@ -130,8 +139,7 @@
     }
 
     .search-body.--search-show {
-      display: flex;
-      flex-direction: column;
+      display: block
     }
   }
 }

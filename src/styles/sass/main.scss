@@ -91,6 +91,7 @@ a {
   background-color: $color_4;
   color: $color_1;
   padding: .5rem;
+  transition: .2s;
 
   &:focus {
     top: 0;

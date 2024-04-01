@@ -27,7 +27,7 @@ class RestaurantReview extends Component {
 
     this.innerHTML = `
     <section class="restaurant-detail-review">
-      <h2>Reviews</h2>
+      <h2 tabindex="0">Reviews</h2>
       <div class="review-wrapper">
         <form action="#" id="reviewForm">
           <ul id="validationContainer">

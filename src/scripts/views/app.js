@@ -1,3 +1,4 @@
+import './components/SkipToContent/skip-to-content';
 import './components/Navbar/app-bar';
 import './components/Footer/app-footer';
 import './components/Backdrop/app-backdrop';

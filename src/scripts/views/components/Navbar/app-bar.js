@@ -9,7 +9,7 @@ class AppBar extends Component {
       <div class="app-bar-wrapper">
         <div class="app-bar-logo">
           <div class="app-bar-brand">
-            <img src="./images/logos/cutlery.png" alt="brand image">
+            <img crossorigin="anonymous" src="./images/logos/cutlery.png" alt="brand image">
             <h1 class="app-bar-title">Me'sResto</h1>
           </div>
           <div class="app-bar-hamburger">

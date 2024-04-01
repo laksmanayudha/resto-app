@@ -21,9 +21,10 @@ class FavoriteButton extends Component {
     const { isFavorite } = this.state;
     this.innerHTML = `
     <button
+      tabindex="0"
       type="button"
       class="favorite"
-      aria-label="add to favorite button"
+      aria-label="${isFavorite ? 'remove from favorite' : 'add to favorite'}"
       id="likeButton"
     >
       ${isFavorite ? '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>'}
