@@ -1,14 +1,16 @@
 const Filler = {
   isEmpty(value) {
-    if (value.construcor === Object) {
-      return Object.keys(value).length === 0;
+    if (typeof value === 'object') {
+      if (value.constructor === Object) {
+        return Object.keys(value).length === 0;
+      }
+
+      if (value.constructor === Array) {
+        return value.length === 0;
+      }
     }
 
-    if (value.construcor === Array) {
-      return value.length === 0;
-    }
-
-    return !!value;
+    return !value;
   },
 };
 

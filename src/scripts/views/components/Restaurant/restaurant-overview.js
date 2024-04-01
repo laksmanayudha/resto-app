@@ -14,7 +14,8 @@ class RestaurantOverview extends Component {
   }
 
   render() {
-    if (Filler.isEmpty(this.state.restaurant)) {
+    const { restaurant = {} } = this.state;
+    if (Filler.isEmpty(restaurant.id)) {
       this.innerHTML = `
       <section class="restaurant-detail-overview">
         No overview available
@@ -31,7 +32,7 @@ class RestaurantOverview extends Component {
       rating,
       reviewCount,
       categories = [],
-    } = this.state.restaurant;
+    } = restaurant;
 
     this.innerHTML = `
     <section class="restaurant-detail-overview">

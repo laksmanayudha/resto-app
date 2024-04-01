@@ -112,8 +112,8 @@ class DetailPage extends Component {
     };
   }
 
-  async _isFavoriteRestaurant(restaurant) {
-    if (Filler.isEmpty(restaurant)) return false;
+  async _isFavoriteRestaurant(restaurant = {}) {
+    if (Filler.isEmpty(restaurant.id)) return false;
     const isExist = await FavoriteRestaurantIdb.find(restaurant.id);
     return !!isExist;
   }
