@@ -44,10 +44,23 @@ class RestaurantSearchItem extends Component {
 
   _generateRatingIcons(rating) {
     let htmlRating = '';
-    const ratingLength = Math.floor(rating);
-    for (let index = 0; index < ratingLength; index += 1) {
+    const fullRating = Math.floor(rating);
+
+    // full rating
+    for (let index = 0; index < fullRating; index += 1) {
       htmlRating += '<i class="fas fa-star"></i>';
     }
+
+    // half rating
+    const isHalfRating = (rating - fullRating) !== 0;
+    if (isHalfRating) htmlRating += '<i class="fas fa-star-half-alt"></i>';
+
+    // empty rating
+    const emptyRating = Math.floor(5 - rating);
+    for (let index = 0; index < emptyRating; index += 1) {
+      htmlRating += '<i class="far fa-star"></i>';
+    }
+
     return htmlRating;
   }
 }

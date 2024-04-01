@@ -1,3 +1,4 @@
+import Filler from '../../../utils/filler';
 import Component from '../component';
 
 class RestaurantOverview extends Component {
@@ -13,6 +14,14 @@ class RestaurantOverview extends Component {
   }
 
   render() {
+    if (Filler.isEmpty(this.state.restaurant)) {
+      this.innerHTML = `
+      <section class="restaurant-detail-overview">
+        No overview available
+      </section>`;
+      return;
+    }
+
     const {
       name,
       description,

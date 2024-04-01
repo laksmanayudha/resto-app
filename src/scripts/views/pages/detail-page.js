@@ -10,6 +10,7 @@ import URLParser from '../../routes/url-parser';
 import ENDPOINT from '../../globals/api-endpoint';
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 import shouldLoading from '../../utils/should-loading';
+import Filler from '../../utils/filler';
 
 class DetailPage extends Component {
   constructor() {
@@ -112,6 +113,7 @@ class DetailPage extends Component {
   }
 
   async _isFavoriteRestaurant(restaurant) {
+    if (Filler.isEmpty(restaurant)) return false;
     const isExist = await FavoriteRestaurantIdb.find(restaurant.id);
     return !!isExist;
   }

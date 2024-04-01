@@ -16,7 +16,8 @@ class RestaurantMenu extends Component {
   }
 
   render() {
-    const { menus: { foods, drinks } } = this.state;
+    const { menus = {} } = this.state;
+    const { foods = [], drinks = [] } = menus;
     this.innerHTML = `
     <section class="restaurant-detail-menu">
       <h2>Our Menu</h2>
