@@ -20,6 +20,10 @@ const config = {
   transform: {
     '^.+\\.(js|ts)$': 'babel-jest',
   },
+
+  moduleNameMapper: {
+    '^.+\\.(css|less|scss)$': 'babel-jest',
+  },
 };
 
 module.exports = config;

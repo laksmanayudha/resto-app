@@ -2,9 +2,10 @@ import { openDB } from 'idb';
 import CONFIG from '../globals/config';
 
 const { DATABASE_NAME, DATABASE_VERSION, OBJECT_STORE_NAME } = CONFIG;
+const PRIMARY_KEY = 'id';
 const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
   upgrade(database) {
-    database.createObjectStore(OBJECT_STORE_NAME, { keyPath: 'id' });
+    database.createObjectStore(OBJECT_STORE_NAME, { keyPath: PRIMARY_KEY });
   },
 });
 
@@ -18,6 +19,7 @@ const FavoriteRestaurantIdb = {
   },
 
   async put(restaurant) {
+    if (!Object.hasOwn(restaurant, PRIMARY_KEY)) return null;
     return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
   },
 

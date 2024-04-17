@@ -2,6 +2,17 @@ import '../Restaurant/restaurant-search';
 import Component from '../component';
 
 class Hero extends Component {
+  constructor() {
+    super();
+    this.state = {
+      onRestaurantSearch: async () => {},
+    };
+  }
+
+  set onRestaurantSearch(onRestaurantSearch) {
+    this.setState({ onRestaurantSearch });
+  }
+
   render() {
     this.innerHTML = `
     <section class="hero">  
@@ -17,6 +28,13 @@ class Hero extends Component {
         </figcaption>
       </figure>
     </section>`;
+
+    this._invokeEventListener();
+  }
+
+  _invokeEventListener() {
+    const restaurantSearch = this.querySelector('restaurant-search');
+    restaurantSearch.onSearch = this.state.onRestaurantSearch;
   }
 }
 

@@ -2,7 +2,6 @@ import '../../../../styles/sass/restaurant-search.scss';
 import './restaurant-search-item';
 import '../Skeleton/search-skeleton';
 import Component from '../component';
-import RestaurantSource from '../../../data/restaurant-source';
 import ENDPOINT from '../../../globals/api-endpoint';
 import debounce from '../../../utils/debounce';
 import shouldLoading from '../../../utils/should-loading';
@@ -10,7 +9,14 @@ import shouldLoading from '../../../utils/should-loading';
 class RestaurantSearch extends Component {
   constructor() {
     super();
+    this.state = {
+      onSearch: async () => {},
+    };
     this._searchRestaurant = this._searchRestaurant.bind(this);
+  }
+
+  set onSearch(onSearch) {
+    this.setState({ onSearch });
   }
 
   render() {
@@ -131,7 +137,7 @@ class RestaurantSearch extends Component {
   async _searchRestaurant(keyword) {
     const { restaurants } = await shouldLoading({
       todo: async () => {
-        const results = await RestaurantSource.search(keyword);
+        const results = await this.state.onSearch(keyword);
         return results;
       },
       loading: () => {

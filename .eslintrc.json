@@ -11,7 +11,9 @@
         "sourceType": "module"
     },
     "rules": {
+        "import/prefer-default-export": "off",
         "no-underscore-dangle": "off",
+        "no-undef": "off",
         "no-console": "off",
         "linebreak-style": "off",
         "class-methods-use-this": "off",

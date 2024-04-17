@@ -47,6 +47,8 @@ class HomePage extends Component {
         <why-us></why-us>
       </dvi>
     `;
+
+    this._invokeEventListener();
   }
 
   afterEffect() {
@@ -59,6 +61,14 @@ class HomePage extends Component {
     const catalogueContainer = this.querySelector('#catalogueContainer');
     catalogueContainer.innerHTML = '';
     catalogueContainer.appendChild(restoCatalogueElement);
+  }
+
+  _invokeEventListener() {
+    const appHero = this.querySelector('app-hero');
+    appHero.onRestaurantSearch = async (keyword) => {
+      const results = await RestaurantSource.search(keyword);
+      return results;
+    };
   }
 }
 
