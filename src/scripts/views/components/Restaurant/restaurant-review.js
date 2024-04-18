@@ -63,7 +63,7 @@ class RestaurantReview extends Component {
   }
 
   _invokeEventListener() {
-    const reviewFormElement = document.querySelector('#reviewForm');
+    const reviewFormElement = this.querySelector('#reviewForm');
     reviewFormElement.addEventListener('submit', async (e) => {
       e.preventDefault();
       const submitReviewButton = this.querySelector('#submitReviewButton');

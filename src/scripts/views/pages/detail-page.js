@@ -5,7 +5,6 @@ import '../components/Restaurant/restaurant-review';
 import '../components/Skeleton/detail-skeleton';
 import '../components/Favorite/favorite-button';
 import Component from '../components/component';
-import RestaurantSource from '../../data/restaurant-source';
 import URLParser from '../../routes/url-parser';
 import ENDPOINT from '../../globals/api-endpoint';
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
@@ -13,8 +12,9 @@ import shouldLoading from '../../utils/should-loading';
 import Filler from '../../utils/filler';
 
 class DetailPage extends Component {
-  constructor() {
+  constructor({ resource }) {
     super();
+    this._resource = resource;
     this.state = {
       restaurant: {},
     };
@@ -25,7 +25,7 @@ class DetailPage extends Component {
     const url = URLParser.parseActiveWithoutCombiner();
     const restaurant = await shouldLoading({
       todo: async () => {
-        const results = await RestaurantSource.detail(url.id);
+        const results = await this._resource.restaurant.detail(url.id);
         return results;
       },
       loading: () => {
@@ -100,7 +100,7 @@ class DetailPage extends Component {
     const restaurantReviewElement = this.querySelector('restaurant-review');
     restaurantReviewElement.onReviewSubmit = async ({ name, review }) => {
       const { id } = this.state.restaurant;
-      const newReviews = await RestaurantSource.addReview({ id, name, review });
+      const newReviews = await this._resource.restaurant.addReview({ id, name, review });
       restaurantReviewElement.reviews = newReviews.reverse();
     };
 
