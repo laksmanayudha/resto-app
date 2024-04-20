@@ -4,6 +4,8 @@ import './components/Footer/app-footer';
 import './components/Backdrop/app-backdrop';
 import URLParser from '../routes/url-parser';
 import serviceWorkerRegister from '../utils/sw-register';
+import RestaurantSource from '../data/restaurant-source';
+import FavoriteRestaurantIdb from '../data/favorite-restaurant-idb';
 
 class App {
   constructor({ content, router, serviceWorker }) {
@@ -33,7 +35,12 @@ class App {
     const url = URLParser.parseActiveWithCombiner();
     const Page = this._router.findPage(url);
     window.scrollTo({ top: 0 });
-    this._content.appendChild(new Page());
+    this._content.appendChild(new Page({
+      resource: {
+        restaurant: RestaurantSource,
+        favorite: FavoriteRestaurantIdb,
+      },
+    }));
   }
 }
 

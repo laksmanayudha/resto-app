@@ -3,14 +3,13 @@ import '../components/Hero/hero';
 import '../components/WhyUs/why-us';
 import '../components/Restaurant/restaurant-catalogues';
 import '../components/Skeleton/catalogue-skeleton';
-import Component from '../components/component';
-import RestaurantSource from '../../data/restaurant-source';
 import ENDPOINT from '../../globals/api-endpoint';
 import shouldLoading from '../../utils/should-loading';
+import Page from './page';
 
-class HomePage extends Component {
-  constructor() {
-    super();
+class HomePage extends Page {
+  constructor({ resource }) {
+    super({ resource });
     this.state = {
       restaurants: [],
     };
@@ -19,7 +18,7 @@ class HomePage extends Component {
   async effect() {
     const restaurants = await shouldLoading({
       todo: async () => {
-        const results = await RestaurantSource.all();
+        const results = await this._resource.restaurant.all();
         return results;
       },
       loading: () => {
@@ -66,7 +65,7 @@ class HomePage extends Component {
   _invokeEventListener() {
     const appHero = this.querySelector('app-hero');
     appHero.onRestaurantSearch = async (keyword) => {
-      const results = await RestaurantSource.search(keyword);
+      const results = await this._resource.restaurant.search(keyword);
       return results;
     };
   }

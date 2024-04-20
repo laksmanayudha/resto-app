@@ -4,16 +4,15 @@ import '../components/Restaurant/restaurant-menu';
 import '../components/Restaurant/restaurant-review';
 import '../components/Skeleton/detail-skeleton';
 import '../components/Favorite/favorite-button';
-import Component from '../components/component';
 import URLParser from '../../routes/url-parser';
 import ENDPOINT from '../../globals/api-endpoint';
 import shouldLoading from '../../utils/should-loading';
 import Filler from '../../utils/filler';
+import Page from './page';
 
-class DetailPage extends Component {
+class DetailPage extends Page {
   constructor({ resource }) {
-    super();
-    this._resource = resource;
+    super({ resource });
     this.state = {
       restaurant: {},
     };

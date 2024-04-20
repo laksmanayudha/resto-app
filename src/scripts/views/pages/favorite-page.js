@@ -3,20 +3,19 @@ import '../../../styles/sass/skeleton.scss';
 import '../components/Restaurant/restaurant-catalogues';
 import '../components/Skeleton/catalogue-skeleton';
 import '../components/Restaurant/restaurant-item';
-import Component from '../components/component';
-import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 import ENDPOINT from '../../globals/api-endpoint';
+import Page from './page';
 
-class FavoritePage extends Component {
-  constructor() {
-    super();
+class FavoritePage extends Page {
+  constructor({ resource }) {
+    super({ resource });
     this.state = {
       restaurants: [],
     };
   }
 
   async effect() {
-    const restaurants = await FavoriteRestaurantIdb.all();
+    const restaurants = await this._resource.favorite.all();
     this.setState({ restaurants });
   }
 

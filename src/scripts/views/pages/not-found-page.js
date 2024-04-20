@@ -1,7 +1,7 @@
 import '../../../styles/sass/404.scss';
-import Component from '../components/component';
+import Page from './page';
 
-class NotFoundPage extends Component {
+class NotFoundPage extends Page {
   render() {
     this.innerHTML = `
     <div class="not-found-page">
