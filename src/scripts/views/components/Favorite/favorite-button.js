@@ -5,7 +5,7 @@ class FavoriteButton extends Component {
     super();
     this.state = {
       isFavorite: false,
-      onFavoriteClick: async () => {},
+      onFavoriteClick: null,
     };
   }
 
@@ -25,7 +25,7 @@ class FavoriteButton extends Component {
       type="button"
       class="favorite"
       aria-label="${isFavorite ? 'remove from favorite' : 'add to favorite'}"
-      id="likeButton"
+      id="favoriteButton"
     >
       ${isFavorite ? '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>'}
     </button>
@@ -35,10 +35,10 @@ class FavoriteButton extends Component {
   }
 
   _invokeEventListener() {
-    const likeButton = this.querySelector('#likeButton');
-    likeButton.addEventListener('click', async () => {
+    const favoriteButton = this.querySelector('#favoriteButton');
+    favoriteButton.addEventListener('click', async () => {
       const { isFavorite, onFavoriteClick } = this.state;
-      await onFavoriteClick({ isFavorite });
+      await onFavoriteClick({ isFavorite: !isFavorite });
     });
   }
 }

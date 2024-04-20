@@ -7,7 +7,6 @@ import '../components/Favorite/favorite-button';
 import Component from '../components/component';
 import URLParser from '../../routes/url-parser';
 import ENDPOINT from '../../globals/api-endpoint';
-import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 import shouldLoading from '../../utils/should-loading';
 import Filler from '../../utils/filler';
 
@@ -106,27 +105,32 @@ class DetailPage extends Component {
 
     // favorite button
     const favoriteButton = this.querySelector('favorite-button');
-    favoriteButton.onFavoriteClick = async () => {
-      const isFavorite = await this._toggleLike();
-      favoriteButton.isFavorite = isFavorite;
+    favoriteButton.onFavoriteClick = async ({ isFavorite }) => {
+      const newIsFavorite = await this._toggleLike({ isFavorite });
+      favoriteButton.isFavorite = newIsFavorite;
+
+      // tell if favorite button clicked
+      this.dispatchEvent(new Event('on.favorite.clicked'));
     };
+
+    // tell if the page ready
+    this.dispatchEvent(new Event('on.detail.ready'));
   }
 
   async _isFavoriteRestaurant(restaurant = {}) {
     if (Filler.isEmpty(restaurant.id)) return false;
-    const isExist = await FavoriteRestaurantIdb.find(restaurant.id);
+    const isExist = await this._resource.favorite.find(restaurant.id);
     return !!isExist;
   }
 
-  async _toggleLike() {
+  async _toggleLike({ isFavorite }) {
     const { restaurant } = this.state;
-    const isFavorite = await this._isFavoriteRestaurant(restaurant);
     if (isFavorite) {
-      await FavoriteRestaurantIdb.delete(restaurant.id);
+      await this._resource.favorite.put(restaurant);
     } else {
-      await FavoriteRestaurantIdb.put(restaurant);
+      await this._resource.favorite.delete(restaurant.id);
     }
-    return !isFavorite;
+    return isFavorite;
   }
 }
 
