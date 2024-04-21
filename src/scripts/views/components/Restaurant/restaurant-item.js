@@ -31,7 +31,7 @@ class RestaurantItem extends Component {
                 <i class="fas fa-map-marker-alt"></i> 
                 ${city}
             </h3>
-            <img crossorigin="anonymous" src="${picture}" alt="restaurant image">
+            <img crossorigin="anonymous" class="lazyload" data-src="${picture}" alt="restaurant image">
         </header>
         <div class="restaurant-body">
             <div class="restaurant-detail">

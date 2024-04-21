@@ -17,7 +17,11 @@ class Hero extends Component {
     this.innerHTML = `
     <section class="hero">  
       <figure>
-        <img crossorigin="anonymous" class="hero__image" src="./images/heros/hero-image_4.jpg" alt="welcome image">
+        <picture>
+          <source media="(max-width: 600px)" srcset="./images/heros/hero-image_4-small.jpg">
+          <source media="(max-width: 1080px)" srcset="./images/heros/hero-image_4-medium.jpg">
+          <img crossorigin="anonymous" class="hero__image" src="./images/heros/hero-image_4-large.jpg" alt="welcome image">
+        </picture>
         <figcaption>
             <div class="hero-content">
               <h2 tabindex="0">Explore Our Restaurant Catalogue Today!</h2>

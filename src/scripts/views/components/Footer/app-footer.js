@@ -5,7 +5,10 @@ class AppFooter extends Component {
   render() {
     this.innerHTML = `
     <footer class="app-footer">
-        <img crossorigin="anonymous" src="./images/logos/cutlery.png" alt="brand image">
+      <picture>
+        <source media="(max-width: 600px)" srcset="./images/logos/cutlery-small.png">
+        <img crossorigin="anonymous" src="./images/logos/cutlery-large.png" alt="brand image">
+      </picture>
         Copyright © 2024 - Me'sResto Apps
     </footer>`;
   }
