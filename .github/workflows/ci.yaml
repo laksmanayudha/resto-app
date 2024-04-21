@@ -22,5 +22,6 @@ jobs:
       - name: Run Automated Test
         run: |
           npm install
+          npx playwright install
           npm run test
           npm run e2e
